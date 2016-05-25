@@ -1,0 +1,22 @@
+{
+  "name": "lavish-jekyll",
+  "version": "0.0.0",
+  "author": "Alex MacArthur <alex@macarthur.me>",
+  "description": "A Jekyll site designed & built for Lavish Salon & Spa.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexmacarthur/lavish-salon-and-spa"
+  },
+  "dependencies": {
+    "jquery": "^1.8.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-jshint": "^1.9.2",
+    "gulp-uglify": "^1.1.0",
+    "gulp-autoprefixer": "^3.0.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "browser-sync": "^2.9.11"
+  }
+}
