@@ -1,0 +1,24 @@
+.Section--hero {
+	background: gray;
+}
+
+.Slider {
+
+	li {
+		position: relative;
+	    padding: 2rem;
+
+	    div {
+			background: gray;
+		}
+	}
+
+	figure {
+		width: 90px;
+		height: 90px;
+		border-radius: 100%;
+		background-size: cover;
+		background-position: center;
+		background: url('http://placehold.it/350x150');
+	}
+}
