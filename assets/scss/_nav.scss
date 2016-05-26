@@ -1,0 +1,70 @@
+header {
+	ul {
+		width: 100%;
+		text-align: center;
+		max-width: 940px;
+    	margin: 0 auto;
+		display: flex;
+	}
+}
+
+.TopBar {
+	background: $purple;
+	padding: 1.25rem;
+
+	ul {
+    	justify-content: space-around;
+
+		li {
+			display: inline;
+			display: flex;
+			align-items: center;
+
+			&:last-child {
+				a {
+				    font-size: 1.85rem;
+
+        			@include media($phablet) {
+	    			    font-size: 1.45rem;
+	    			}
+				}
+			}
+
+			a {
+				color: white;
+				text-transform: uppercase;
+				font-size: 1.75rem;
+    			font-weight: lighter;
+
+    			@include media($phablet) {
+    			    font-size: 1.25rem;
+    			}
+			}
+
+			svg {
+				height: 25px;
+    			margin: 0 1rem 0;
+
+    			@include media($phablet) {
+    			    height: 20px;
+    			}
+			}
+		}
+	}
+}
+
+nav {
+    padding: 5rem 0;
+
+	ul {
+		justify-content: space-around;
+
+		li {
+			display: inline;
+
+			a {
+				text-transform: uppercase;
+			}
+		}
+	}
+}
