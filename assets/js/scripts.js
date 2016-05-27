@@ -6,8 +6,9 @@ var Lavish = {
 
 	slider : function() {
 		$('#testimonialSlider').slick({
-			centerMode: true,
-			slidesToShow: 3
+			infinite: true,
+			slidesToShow: 3,
+			slidesToScroll: 3
 		});
 	}
 }
