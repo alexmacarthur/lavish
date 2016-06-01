@@ -1,4 +1,6 @@
 header {
+	position: relative;
+
 	ul {
 		@extend .Container;
 		width: 100%;
@@ -63,7 +65,18 @@ nav {
 
 			a {
 				text-transform: uppercase;
+			    font-size: 2rem;
 			}
 		}
 	}
+}
+
+.Verse {
+	@extend %satisfy;
+	display: block;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: .5rem;
+    font-size: 1.5rem;
 }

@@ -1,31 +1,97 @@
 .Container {
     max-width: 940px;
     margin: 0 auto;
+    padding: 0 2rem;
 
     .Section--testimonials & {
     	overflow: hidden;
     }
 }
 
-.Underline {
-	hr {
-		border: 0;
-		background: $purple;
-		height: 2px;
-		max-width: 250px;
+.Header {
+    margin: 5rem 0;
 
-		&:last-child {
-			max-width: 150px;
+	ul {
+		li {
+			border: 0;
+			background: $purple;
+			height: 2px;
+			max-width: 250px;
+			margin: auto;
+
+			&:last-child {
+				max-width: 150px;
+			    margin-top: 1rem;
+			}
 		}
-	}
+	}	
 }
 
 .Section--hero {
 	background: gray;
 	height: 500px;
+	overflow: hidden;
+}
+
+.Hero-images {
+	position: absolute;
+    width: 115%;
+    height: 115%;
+    left: 50%;
+    top: 50%;
+	margin: 0;
+    transform: rotate(-5deg) translate(-50%, -50%);		
+    transform-origin: 0 0;
+
+	li {
+		width: 33.33%;
+		float: left;
+		position: absolute;
+		height: 110%;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		background: pink;
+
+		&:nth-child(2) {
+			left: 33.33%;
+			background: green;
+		}
+
+		&:nth-child(3) {
+			left: 66.66%;
+			background: yellow;
+		}
+	}
+}
+
+.Hero-text {
+	@extend %fill;
+
+	li {
+		position: absolute;
+		left: 0;
+		bottom: 1rem;
+    	left: 1.5rem;
+
+		&:nth-child(2) {
+			left: 36.5%;
+		}
+
+		&:nth-child(3) {
+			left: 75%;
+		}
+
+		h2 {
+			color: white;
+			font-size: 6rem;
+    		font-weight: 100;
+		}
+	}
 }
 
 .Slider {
+	margin-bottom: 0;
 
 	li {
 		position: relative;
@@ -56,5 +122,22 @@
 
 	.slick-list {
 		overflow: visible;
+	}
+}
+
+.SliderNav {
+    text-align: center;
+    margin-top: 0;
+
+	li {
+	    display: inline-block !important;
+
+	    &:first-child {
+	    	margin-right: 1rem;
+	    }
+
+	    a {
+	    	cursor: pointer;
+	    }
 	}
 }

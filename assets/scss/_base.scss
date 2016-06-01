@@ -18,9 +18,17 @@ a {
 	@extend %josephin;
 }
 
+span {
+	@extend %josephin;
+}
+
 p {
-    font-size: 1.5rem;
+	@extend %josephin;
+    font-size: 2rem;
+    text-align: center;
     line-height: 1.25;
+    max-width: 700px;
+    margin: 1.5rem auto;
 }
 
 h2 {
@@ -28,4 +36,8 @@ h2 {
 	text-align: center;
 	margin-bottom: 1rem;
 	font-size: 3.5rem;
+}
+
+section {
+	position: relative;
 }

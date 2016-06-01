@@ -2,27 +2,50 @@
 layout: default
 ---
 
-<section class="Section--hero">
+<section class="Section--hero Hero">
+
+	<ul class="Hero-images">
+		<li>
+
+		</li>
+		<li>
+			
+		</li>
+		<li>
+	
+		</li>
+	</ul>
+
+	<ul class="Hero-text">
+		<li><h2>Hair</h2></li>
+		<li><h2>Skin</h2></li>
+		<li><h2>Nails</h2></li>
+	</ul>
 
 </section>
 
 <section class="Section--about">
 
-	<h2>About Lavish Salon &amp; Spa</h2>
-	<div class="Underline">
-		<hr/>
-		<hr/>
+	<div class="Header">
+		<h2>About Lavish Salon &amp; Spa</h2>
+		{% include partial-lines.html %}
 	</div>
 
+	<div class="Container">
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</p>
+
+	</div>
 
 </section>
 
 <section class="Section--testimonials">
 
-	<h2>What People Are Saying</h2>
-	<div class="Underline">
-		<hr/>
-		<hr/>
+	<div class="Header">
+		<h2>What People Are Saying</h2>
+		{% include partial-lines.html %}
 	</div>
 
 	<div class="Container">
@@ -83,16 +106,20 @@ layout: default
 				</div>
 			</li>
 		</ul>
+
+		<ul class="SliderNav">
+			<li id="slickPrev"><a title="Previous Testimonials">&lt;</a></li>
+			<li id="slickNext"><a title="Next Testimonials">&gt;</a></li>
+		</ul>
 	</div>
 </section>
 
 <section class="Section--visit">
 	
+	<div class="Header">
 		<h2>Visit Us!</h2>
-		<div class="Underline">
-			<hr/>
-			<hr/>
-		</div>
+		{% include partial-lines.html %}
+	</div>
 
 
 </section>
