@@ -7,11 +7,6 @@ body {
   color: $purple;
 }
 
-ul {
-	padding: 0;
-	list-style: none;
-}
-
 a {
 	text-decoration: none;
 	color: $purple;
@@ -31,10 +26,19 @@ p {
     margin: 1.5rem auto;
 }
 
+ul {
+	padding: 0;
+	list-style: none;
+}
+
+li {
+	@extend p;
+}
+
 h2 {
 	@extend %satisfy;
 	text-align: center;
-	margin-bottom: 1rem;
+    margin: 0 0 1rem;
 	font-size: 3.5rem;
 }
 

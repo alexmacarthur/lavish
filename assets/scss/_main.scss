@@ -1,7 +1,9 @@
 .Container {
+	position: relative;
     max-width: 940px;
     margin: 0 auto;
     padding: 0 2rem;
+    z-index: 1;
 
     .Section--testimonials & {
     	overflow: hidden;
@@ -9,7 +11,8 @@
 }
 
 .Header {
-    margin: 5rem 0;
+	position: relative;
+    z-index: 1;
 
 	ul {
 		li {
@@ -27,10 +30,64 @@
 	}	
 }
 
+.Header--white {
+	ul {
+		li {
+			background: white;
+		}
+	}
+}
+
+section {
+	position: relative;
+	padding: 4rem 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
 .Section--hero {
 	background: gray;
 	height: 500px;
 	overflow: hidden;
+}
+
+.Section--divider {
+	i {
+		display: block;
+		width: 75px;
+		margin: 0 auto;
+
+		svg {
+			max-width: 100%;
+
+			path {
+				fill: $purple;
+			}
+		}
+	}
+}
+
+.Section--testimonials {
+	background: url('../assets/img/background-testimonials.jpg');
+
+	&:after {
+		@extend %fill;
+		content: '';
+		background: rgba(white, .85);
+		z-index: 0;
+	}
+}
+
+.Section--products {
+	background: $purple;
+
+	* {
+		color: white;
+	}
+}
+
+.Section--contact {
+	background: url('../assets/img/background-contact.jpg');
 }
 
 .Hero-images {
@@ -99,7 +156,7 @@
 	    text-align: center;
 
 	    div {
-			background: rgba(gray, .1);
+			background: white;
 		}
 	}
 
@@ -127,17 +184,43 @@
 
 .SliderNav {
     text-align: center;
-    margin-top: 0;
+    margin: 1rem 0 0;
 
 	li {
 	    display: inline-block !important;
+	    position: absolute;
+    	bottom: 0;
+    	transition: all .25s ease-in-out;
+
+	    &:last-child {
+	    	left: 51%;
+
+	    	&:hover {
+	    		left: 51.5%;
+	    	}
+	    }
 
 	    &:first-child {
-	    	margin-right: 1rem;
+	    	right: 51%;
+
+	    	&:hover {
+	    		right: 51.5%;
+	    	}
 	    }
 
 	    a {
 	    	cursor: pointer;
+    	    font-size: 3rem;	
 	    }
+	}
+}
+
+.ProductList {
+	display: flex;
+	flex-wrap: wrap;
+
+	li {
+		flex: 1 0 33%;
+		font-size: 3rem;
 	}
 }
