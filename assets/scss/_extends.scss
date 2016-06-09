@@ -13,3 +13,20 @@
 	left: 0;
 	top: 0;
 }
+
+%overlay {
+	&:after {
+		@extend %fill;
+		content: '';
+		background: rgba(white, .85);
+		z-index: 0;
+	}
+}
+
+%clearfix {
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}

@@ -155,12 +155,45 @@ layout: default
 			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni.</p>
 
 			<ul class="ContactList">
-				<li>Open 6am - 9pm, Monday - Friday</li>
+				<li>
+					<i>{% include svg/icon-clock.svg %}</i>
+					Open 6am - 9pm, Monday - Friday
+				</li>
+				<li>
+					<i>{% include svg/icon-map-marker.svg %}</i>
+					266 2nd Avenue West<br>Echo, MN
+				</li>
+				<li>
+					<i>{% include svg/icon-phone.svg %}</i>
+					<a href="tel:507-925-4247">507-925-4247</a>
+				</li>
+				<li>
+					<i>{% include svg/icon-facebook.svg %}</i>
+					<a href="https://www.facebook.com/Lavish.salon.spa.1">https://www.facebook.com/Lavish.salon.spa.1</a>
+				</li>
 			</ul>
 
 		</aside>
 
 		<aside>
+
+			<div id="StatusMessages"></div>
+
+			<form id="contactForm" action="//formspree.io/alex@macarthur.me" method="POST">
+				<p>
+					<label>Name</label>
+            		<input id="formName" type="text" name="name" placeholder="Name" required>
+            	</p>
+            	<p>
+            		<label>Email Address</label>
+            		<input id="formEmail" type="email" name="_replyto" placeholder="Email Address" required>
+            	</p>
+            	<p>
+            		<label>Message</label>
+            		<textarea id="formMessage" name="message" placeholder="Enter your message."></textarea>
+            	</p>
+	            <input class="ContactForm-submit" type="submit" value="Submit">
+	        </form>
 
 		</aside>
 	</div>

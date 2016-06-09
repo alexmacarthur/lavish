@@ -1,4 +1,5 @@
 .Container {
+	@extend %clearfix;
 	position: relative;
     max-width: 940px;
     margin: 0 auto;
@@ -8,6 +9,19 @@
     .Section--testimonials & {
     	overflow: hidden;
     }
+}
+
+aside {
+	width: 49%;
+	float: left;
+
+	* {
+		text-align: left;
+	}
+
+	&:first-child {
+		margin-right: 2%;
+	}
 }
 
 .Header {
@@ -68,14 +82,12 @@ section {
 }
 
 .Section--testimonials {
+	@extend %overlay;
 	background: url('../assets/img/background-testimonials.jpg');
+}
 
-	&:after {
-		@extend %fill;
-		content: '';
-		background: rgba(white, .85);
-		z-index: 0;
-	}
+.Section--contact {
+	@extend %overlay;
 }
 
 .Section--products {
@@ -222,5 +234,22 @@ section {
 	li {
 		flex: 1 0 33%;
 		font-size: 3rem;
+	}
+}
+
+.ContactList {
+
+	i {
+		position: relative;
+		width: 25px;
+		height: 25px;
+		display: inline-block;
+
+		svg {
+
+			* {
+				fill: $purple;
+			}
+		}
 	}
 }
