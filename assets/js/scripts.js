@@ -43,7 +43,18 @@ var Lavish = {
 				$statusMessages.html('Sorry, an something\'s messed up. Refresh the page to try again, or just send an email to alex@macarthur.me.').removeClass('success').addClass('failure');
 			});
 		});
+	},
+
+	parallax : function(){
+	  	var scrolled = $(window).scrollTop();
+	  	$('.Background').css('top',-(scrolled*0.1)+'px');
 	}
 };
 
-Lavish.init();
+$(document).ready(function() {
+	Lavish.init();
+
+	$(window).scroll(function(e){
+	 	Lavish.parallax();
+	});
+});

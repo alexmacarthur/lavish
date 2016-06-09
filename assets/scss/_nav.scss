@@ -1,5 +1,7 @@
 header {
+	@extend %z-index;
 	position: relative;
+	background: white;
 
 	ul {
 		@extend .Container;

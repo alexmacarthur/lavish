@@ -5,3 +5,6 @@ baseurl: ""
 url: ""
 exclude: [node_modules, gulpfile.js, Gemfile, Gemfile.lock, package.json]
 markdown: kramdown
+
+phone: 507-925-4247
+facebook: https://www.facebook.com/Lavish.salon.spa.1

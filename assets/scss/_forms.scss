@@ -17,3 +17,13 @@ form {
 		text-align: left;
 	}
 }
+
+input[type='submit'] {
+	@extend %satisfy;
+	color: white;
+	background: $purple;
+    width: auto;
+	float: right;
+	padding: 1rem 3rem;
+    font-size: 2rem;
+}

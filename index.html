@@ -42,6 +42,7 @@ layout: default
 </section>
 
 <section class="Section--testimonials">
+	<div class="Background"></div>
 
 	<div class="Header">
 		<h2>What People Are Saying</h2>
@@ -143,6 +144,7 @@ layout: default
 </section>
 
 <section class="Section--contact">
+	<div class="Background"></div>
 	
 	<div class="Header">
 		<h2>Contact Us Today!</h2>
@@ -165,11 +167,11 @@ layout: default
 				</li>
 				<li>
 					<i>{% include svg/icon-phone.svg %}</i>
-					<a href="tel:507-925-4247">507-925-4247</a>
+					<a href="tel:{{ site.phone }}">{{ site.phone }}</a>
 				</li>
 				<li>
 					<i>{% include svg/icon-facebook.svg %}</i>
-					<a href="https://www.facebook.com/Lavish.salon.spa.1">https://www.facebook.com/Lavish.salon.spa.1</a>
+					<a href="{{ site.facebook }}">{{ site.facebook }}</a>
 				</li>
 			</ul>
 
@@ -182,15 +184,15 @@ layout: default
 			<form id="contactForm" action="//formspree.io/alex@macarthur.me" method="POST">
 				<p>
 					<label>Name</label>
-            		<input id="formName" type="text" name="name" placeholder="Name" required>
+            		<input id="formName" type="text" name="name"required>
             	</p>
             	<p>
             		<label>Email Address</label>
-            		<input id="formEmail" type="email" name="_replyto" placeholder="Email Address" required>
+            		<input id="formEmail" type="email" name="_replyto" required>
             	</p>
             	<p>
             		<label>Message</label>
-            		<textarea id="formMessage" name="message" placeholder="Enter your message."></textarea>
+            		<textarea id="formMessage" name="message"></textarea>
             	</p>
 	            <input class="ContactForm-submit" type="submit" value="Submit">
 	        </form>
@@ -198,4 +200,8 @@ layout: default
 		</aside>
 	</div>
 
+</section>
+
+<section class="Section--divider">
+	<i>{% include svg/icon-scissors.svg %}</i>
 </section>

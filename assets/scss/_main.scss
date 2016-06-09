@@ -1,7 +1,7 @@
 .Container {
 	@extend %clearfix;
 	position: relative;
-    max-width: 940px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 2rem;
     z-index: 1;
@@ -12,7 +12,7 @@
 }
 
 aside {
-	width: 49%;
+	width: 46%;
 	float: left;
 
 	* {
@@ -20,7 +20,7 @@ aside {
 	}
 
 	&:first-child {
-		margin-right: 2%;
+		margin-right: 8%;
 	}
 }
 
@@ -53,8 +53,17 @@ aside {
 }
 
 section {
+	@extend %z-index;
 	position: relative;
 	padding: 4rem 0;
+    overflow: hidden;
+    background: rgba(white, 1);
+}
+
+.Background {
+	@extend %fill;
+	height: 150%;
+	position: absolute;
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -63,6 +72,10 @@ section {
 	background: gray;
 	height: 500px;
 	overflow: hidden;
+}
+
+.Section--about {
+	padding: 9rem 0;
 }
 
 .Section--divider {
@@ -83,11 +96,18 @@ section {
 
 .Section--testimonials {
 	@extend %overlay;
-	background: url('../assets/img/background-testimonials.jpg');
+	
+	.Background {
+		background-image: url('../assets/img/background-testimonials.jpg');
+	}
 }
 
 .Section--contact {
 	@extend %overlay;
+	
+	.Background {
+		background-image: url('../assets/img/background-contact.jpg');
+	}
 }
 
 .Section--products {
@@ -96,10 +116,6 @@ section {
 	* {
 		color: white;
 	}
-}
-
-.Section--contact {
-	background: url('../assets/img/background-contact.jpg');
 }
 
 .Hero-images {
@@ -239,8 +255,13 @@ section {
 
 .ContactList {
 
-	i {
+	li {
 		position: relative;
+	}
+
+	i {
+		position: absolute;
+		left: -30px;
 		width: 25px;
 		height: 25px;
 		display: inline-block;
