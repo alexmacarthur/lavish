@@ -79,6 +79,15 @@ section {
 }
 
 .Section--divider {
+
+	span {
+		display: block;
+
+		&:first-of-type {
+			transform: rotate(180deg);
+		}
+	}
+
 	i {
 		display: block;
 		width: 75px;
@@ -244,6 +253,7 @@ section {
 }
 
 .ProductList {
+	position: relative;
 	display: flex;
 	flex-wrap: wrap;
 
@@ -253,7 +263,16 @@ section {
 	}
 }
 
+.ProductList--description {
+	height: 0;
+	overflow: hidden;
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
 .ContactList {
+	margin-left: 3rem;
 
 	li {
 		position: relative;
@@ -262,8 +281,8 @@ section {
 	i {
 		position: absolute;
 		left: -30px;
-		width: 25px;
-		height: 25px;
+		width: 20px;
+		height: 20px;
 		display: inline-block;
 
 		svg {
