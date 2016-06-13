@@ -79,17 +79,26 @@ section {
 }
 
 .Section--divider {
+    text-align: center;
 
 	span {
-		display: block;
+		display: inline-block;
+		width: 200px;
+		height: 60px;
 
-		&:first-of-type {
-			transform: rotate(180deg);
+		svg {
+			width: 100%;
+
+			path {
+				fill: rgba(white, 0);
+				stroke: $purple;
+				stroke-width: 2px;
+			}
 		}
 	}
 
 	i {
-		display: block;
+		display: inline-block;
 		width: 75px;
 		margin: 0 auto;
 
@@ -101,6 +110,14 @@ section {
 			}
 		}
 	}
+}
+
+.Section--wrapper {
+	display: inline-block;
+}
+
+.Swirl--left {
+
 }
 
 .Section--testimonials {
