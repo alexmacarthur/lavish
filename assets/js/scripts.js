@@ -114,9 +114,14 @@ var Lavish = {
     svgChecks : function() {
     	Object.keys(Lavish.svgDividers).forEach(function(key) {
 			if(Lavish._isVisible($('#divider' + Lavish.svgDividers[key]['name'])) && !Lavish.svgDividers[key]['beenDrawn']) {
+				var element = 'svg' + Lavish.svgDividers[key]['name'];
+				
 				Lavish.svgDividers[key]['beenDrawn'] = true;
-				Lavish.drawSVG('svg' + Lavish.svgDividers[key]['name'] + 'Left', 'left');
-				Lavish.drawSVG('svg' + Lavish.svgDividers[key]['name'] + 'Right', 'right');
+				Lavish.drawSVG(element + 'Left', 'left');
+				Lavish.drawSVG(element + 'Right', 'right');
+
+				$('#' + element + 'Left').addClass('is-faded-in');
+				$('#' + element + 'Right').addClass('is-faded-in');
 			}	
 	    });
     }

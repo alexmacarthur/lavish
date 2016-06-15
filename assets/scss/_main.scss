@@ -82,9 +82,15 @@ section {
     text-align: center;
 
 	span {
+		transition: all .5s ease-in-out .25s;
 		display: inline-block;
 		width: 200px;
 		height: 60px;
+		opacity: 0;
+
+		&.Swirl--right {
+			transition: all .5s ease-in-out .35s;
+		}
 
 		svg {
 			width: 100%;
@@ -94,6 +100,10 @@ section {
 				stroke: $purple;
 				stroke-width: 2px;
 			}
+		}
+
+		&.is-faded-in {
+			opacity: 1;
 		}
 	}
 
@@ -114,10 +124,6 @@ section {
 
 .Section--wrapper {
 	display: inline-block;
-}
-
-.Swirl--left {
-
 }
 
 .Section--testimonials {

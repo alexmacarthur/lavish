@@ -9,4 +9,29 @@
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Satisfy' rel='stylesheet' type='text/css'>
+
+	<script type="application/ld+json">
+		{
+		  	"@context": "http://schema.org",
+		  	"@type": "LocalBusiness",
+		  	"address": {
+		    "@type": "PostalAddress",
+		    "addressLocality": "Echo",
+		    "addressRegion": "MN",
+		    "postalCode":"56237",
+		    "streetAddress": "{{ site.address }}"
+	  	},
+	  	"description": "{{ site.description }}",
+	  	"name": "{{ site.name }}",
+	  	"telephone": "{{ site.phone }}",
+	  	"openingHours": "Mo,Tu,We,Th,Fr 06:00-21:00",
+	  	"geo": {
+		    "@type": "GeoCoordinates",
+		    "latitude": "44.6166698",
+		    "longitude": "-95.4177197"
+	 	}, 			
+	  	"sameAs" : [ "{{ site.facebook }}"]
+		}
+	</script>
+
 </head>
