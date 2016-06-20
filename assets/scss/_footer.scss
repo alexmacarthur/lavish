@@ -24,6 +24,10 @@ footer {
 			display: inline-block;
 			float: left;
 			text-align: center;
+
+			& + li {
+				margin-left: 8rem;
+			}
 		}
 	}
 }

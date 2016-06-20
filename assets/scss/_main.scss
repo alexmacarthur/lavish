@@ -52,6 +52,19 @@ aside {
 	}
 }
 
+.Logo {
+	min-width: 200px;
+	fill: $purple;
+
+	a {
+		display: block;
+	}
+}
+
+.Logo--footer {
+	fill: white;
+}
+
 section {
 	@extend %z-index;
 	position: relative;
@@ -151,60 +164,62 @@ section {
 }
 
 .Hero-images {
-	position: absolute;
-    width: 115%;
-    height: 115%;
-    left: 50%;
-    top: 50%;
-	margin: 0;
-    transform: rotate(-5deg) translate(-50%, -50%);		
-    transform-origin: 0 0;
-
-	li {
-		width: 33.33%;
-		float: left;
-		position: absolute;
-		height: 110%;
-		left: 0;
-		top: 50%;
-		transform: translateY(-50%);
-		background: pink;
-
-		&:nth-child(2) {
-			left: 33.33%;
-			background: green;
-		}
-
-		&:nth-child(3) {
-			left: 66.66%;
-			background: yellow;
-		}
-	}
-}
-
-.Hero-text {
 	@extend %fill;
+	margin: 0;
 
 	li {
-		position: absolute;
-		left: 0;
-		bottom: 1rem;
-    	left: 1.5rem;
+		position: relative;
+		width: 33.333%;
+		height: 100%;
+		float: left;
+		margin: 0;
+	    overflow: hidden;
+	    background: url('https://static.pexels.com/photos/29593/pexels-photo-large.jpg') no-repeat;
+		background-size: cover;
+		background-position: center;
 
 		&:nth-child(2) {
-			left: 36.5%;
-		}
+			background-image: url('https://static.pexels.com/photos/51969/model-female-girl-beautiful-51969-large.jpeg');
+		}	
 
 		&:nth-child(3) {
-			left: 75%;
+			background-image: url('https://static.pexels.com/photos/26739/pexels-photo-26739-large.jpg');
+		}
+
+		div {
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
 		}
 
 		h2 {
+			transition: top .25s ease-in-out;
+			text-align: center;
 			color: white;
+			width: 100%;
 			font-size: 6rem;
     		font-weight: 100;
+		    display: block;
 		}
+
+		p {
+			transition: max-height .25s ease-in-out 0s, opacity .25s ease-in-out .1s;
+			color: white;
+			opacity: 0;
+			display: block;
+			max-height: 0;
+			overflow: hidden;
+			margin: 0;
+		}
+
+	    &:hover {
+	    	p {
+	    		max-height: 150px;
+	    		opacity: 1;
+	    	}
+	    }
 	}
+
 }
 
 .Slider {
