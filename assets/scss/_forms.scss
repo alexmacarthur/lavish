@@ -7,7 +7,7 @@ textarea {
 	background: white;
 	width: 100%;
 	border-radius: 2px;
-	border: 1px solid rgba($purple, .15);
+	border: 1px solid rgba($primary-color, .15);
 	padding: 1rem;
 	outline: none;
 }
@@ -21,7 +21,7 @@ form {
 input[type='submit'] {
 	@extend %satisfy;
 	color: white;
-	background: $purple;
+	background: $primary-color;
     width: auto;
 	float: right;
 	padding: 1rem 3rem;

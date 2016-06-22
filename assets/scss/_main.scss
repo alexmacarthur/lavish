@@ -31,7 +31,7 @@ aside {
 	ul {
 		li {
 			border: 0;
-			background: $purple;
+			background: $gray;
 			height: 2px;
 			max-width: 250px;
 			margin: auto;
@@ -54,7 +54,7 @@ aside {
 
 .Logo {
 	min-width: 200px;
-	fill: $purple;
+	fill: $gray;
 
 	a {
 		display: block;
@@ -110,7 +110,7 @@ section {
 
 			path {
 				fill: rgba(white, 0);
-				stroke: $purple;
+				stroke: $primary-color;
 				stroke-width: 2px;
 			}
 		}
@@ -129,7 +129,7 @@ section {
 			max-width: 100%;
 
 			path {
-				fill: $purple;
+				fill: $gray;
 			}
 		}
 	}
@@ -156,7 +156,7 @@ section {
 }
 
 .Section--products {
-	background: $purple;
+	background: $primary-color;
 
 	* {
 		color: white;
@@ -326,7 +326,7 @@ section {
 		svg {
 
 			* {
-				fill: $purple;
+				fill: $gray;
 			}
 		}
 	}
