@@ -6,9 +6,10 @@ var sass = require('gulp-sass');
 var rename = require("gulp-rename");
 var browserSync = require('browser-sync');
 var cp = require('child_process');
+var jekyll = process.platform === "win32" ? "jekyll.bat" : "jekyll";
 
 gulp.task('build', function (done) {
-  return cp.spawn('jekyll', ['build'], {stdio: 'inherit'})
+  return cp.spawn(jekyll, ['build'], {stdio: 'inherit'})
   .on('close', done);
 });
 

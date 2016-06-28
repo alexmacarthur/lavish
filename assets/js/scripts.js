@@ -33,10 +33,6 @@ var Lavish = {
 		});
 	}, 
 
-	drawSVG : function(el, side) {
-  		new Vivus(el, {duration: 50, file: 'assets/img/svg-swirl-' + side + '.svg'}, null);
-	},
-
 	contactForm : function() {
 		$('#ContactForm').on('submit', function(e){
 			e.preventDefault();
@@ -113,16 +109,12 @@ var Lavish = {
 
     svgChecks : function() {
     	Object.keys(Lavish.svgDividers).forEach(function(key) {
-			if(Lavish._isVisible($('#divider' + Lavish.svgDividers[key]['name'])) && !Lavish.svgDividers[key]['beenDrawn']) {
+			if(Lavish._isVisible($('#divider' + Lavish.svgDividers[key]['name']))) {
 				var element = 'svg' + Lavish.svgDividers[key]['name'];
 				
-				Lavish.svgDividers[key]['beenDrawn'] = true;
-				Lavish.drawSVG(element + 'Left', 'left');
-				Lavish.drawSVG(element + 'Right', 'right');
-
 				$('#' + element + 'Left').addClass('is-faded-in');
 				$('#' + element + 'Right').addClass('is-faded-in');
-			}	
+			}
 	    });
     }
 };
@@ -133,8 +125,6 @@ $(document).ready(function() {
 	$(window).scroll(function(e){
 	 	Lavish.parallax();
 	 	Lavish.svgChecks();
-	});
-
-	Lavish.svgChecks();
+	})();
 
 });
