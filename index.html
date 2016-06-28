@@ -152,29 +152,10 @@ layout: default
 		</ul>
 
 		<ul class="ProductList">
-			<li>Hair Stuff
-				<span class="ProductList-description">
-					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.
-					</p>
-				</span>
-			</li>
-			<li>Nail Stuff
-				<span class="ProductList-description">
-					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.
-					</p>
-				</span>
-			</li>
-			<li>Other Stuff
-				<span class="ProductList-description">
-					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.
-					</p>
-				</span>
-			</li>
+			<li>Hair Stuff</li>
+			<li>Nail Stuff</li>
+			<li>Other Stuff</li>
 		</ul>
-		<div class="ProductDescription">
-			<p>
-			</p>
-		</div>
 	</div>
 </section>
 
@@ -230,8 +211,6 @@ layout: default
 
 		<aside>
 
-			<div id="StatusMessages"></div>
-
 			<form id="contactForm" action="//formspree.io/alex@macarthur.me" method="POST">
 				<p>
 					<label>Name</label>
@@ -245,9 +224,11 @@ layout: default
             		<label>Message</label>
             		<textarea id="formMessage" name="message"></textarea>
             	</p>
-	            <input class="ContactForm-submit" type="submit" value="Submit">
+            	<div class="Form--row">
+	            	<div id="statusMessages"></div>
+		            <input class="ContactForm-submit" type="submit" value="Submit">
+	            </div>
 	        </form>
-
 		</aside>
 	</div>
 

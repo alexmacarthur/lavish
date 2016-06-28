@@ -3,6 +3,7 @@ var Lavish = {
 	init : function() {
 		this.slider();
 		this.contactForm();
+		this.svgChecks();
 	},
 
 	svgDividers : {
@@ -34,13 +35,13 @@ var Lavish = {
 	}, 
 
 	contactForm : function() {
-		$('#ContactForm').on('submit', function(e){
+		$('#contactForm').on('submit', function(e){
 			e.preventDefault();
 
 			var $formName = $('#formName');
 			var $formEmail = $('#formEmail');
 			var $formMessage = $('#formMessage');
-			var $statusMessages = $('#StatusMessages');
+			var $statusMessages = $('#statusMessages');
 
 			$statusMessages.removeClass('failure success');
 
@@ -57,9 +58,9 @@ var Lavish = {
 				$formName.val('');
 				$formEmail.val('');
 				$formMessage.val('');
-				$statusMessages.html('Your message was successfully sent! Thanks.').removeClass('failure').addClass('success');
+				$statusMessages.html('Your message was successfully sent! Thanks.').removeClass('form-failure').addClass('form-success');
 			}).fail(function(data) {
-				$statusMessages.html('Sorry, an something\'s messed up. Refresh the page to try again, or just send an email to alex@macarthur.me.').removeClass('success').addClass('failure');
+				$statusMessages.html('Sorry, an something\'s messed up. Refresh the page to try again, or just send an email to alex@macarthur.me.').removeClass('form-success').addClass('form-failure');
 			});
 		});
 	},
@@ -111,7 +112,6 @@ var Lavish = {
     	Object.keys(Lavish.svgDividers).forEach(function(key) {
 			if(Lavish._isVisible($('#divider' + Lavish.svgDividers[key]['name']))) {
 				var element = 'svg' + Lavish.svgDividers[key]['name'];
-				
 				$('#' + element + 'Left').addClass('is-faded-in');
 				$('#' + element + 'Right').addClass('is-faded-in');
 			}
@@ -120,11 +120,12 @@ var Lavish = {
 };
 
 $(document).ready(function() {
+
 	Lavish.init();
 
 	$(window).scroll(function(e){
 	 	Lavish.parallax();
 	 	Lavish.svgChecks();
-	})();
+	});
 
 });

@@ -178,6 +178,7 @@ section {
 		float: left;
 		margin: 0;
 	    overflow: hidden;
+        padding: 1rem 2rem;
 	    background: url('https://static.pexels.com/photos/29593/pexels-photo-large.jpg') no-repeat;
 		background-size: cover;
 		background-position: center;
@@ -239,6 +240,7 @@ section {
 
 .Slider {
 	margin-bottom: 0;
+    margin-top: 0;
 
 	li {
 		position: relative;

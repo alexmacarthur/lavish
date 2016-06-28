@@ -71,6 +71,19 @@ nav {
 		li {
 			display: inline;
 
+			    			&:after {
+					content: '';
+					width: 100%;
+					height: 0;
+					background: $primary-color;
+				}
+
+				&:hover {
+					&:after {
+						height: 10px;
+					}
+				}
+
 			a {
 				text-transform: uppercase;
 			    font-size: 2rem;
