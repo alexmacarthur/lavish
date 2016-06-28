@@ -61,6 +61,29 @@ aside {
 	}
 }
 
+.Logo--header {
+	@include media($phablet) {
+		display: none;
+	}
+}
+
+.MobileHeader {
+	display: none;
+    position: relative;
+
+	@include media($phablet) {
+		display: block;
+	}
+
+	.Logo {
+		padding: 2.5rem 0 5rem;
+	}
+
+	svg {
+		max-height: 100px;
+	}
+}
+
 .Logo--footer {
 	fill: white;
 }

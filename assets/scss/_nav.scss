@@ -64,14 +64,35 @@ header {
 nav {
     padding: 3rem 0;
 
+    @include media($phablet) {
+    	transition: all .25s ease-in-out;
+    	transform: translateX(100%);
+    	position: fixed;
+	    background: rgba($primary-color, .85);
+	    height: 100%;
+	    width: 100%;
+	    top: 0;
+	    left: 0;
+	    padding-top: 5rem;
+	    z-index: 1;
+
+	    &.is-open {
+	    	transform: translateX(0);
+	    }
+    }
+
 	ul {
 		justify-content: space-around;
 	    align-items: center;
 
+	    @include media($phablet) {
+	    	flex-direction: column;
+	    }
+
 		li {
 			display: inline;
 
-			    			&:after {
+    			&:after {
 					content: '';
 					width: 100%;
 					height: 0;
@@ -87,9 +108,23 @@ nav {
 			a {
 				text-transform: uppercase;
 			    font-size: 2rem;
+
+			    @include media($phablet) {
+			    	color: white;
+			    }
 			}
 		}
 	}
+}
+
+#menuToggle {
+	background: $gray;
+	border-radius: 2px;
+	color: white;
+	position: absolute;
+	right: 0;
+	top: calc(50% - 50px);
+	transform: translateY(-50%);
 }
 
 .Verse {

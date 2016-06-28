@@ -4,6 +4,7 @@ var Lavish = {
 		this.slider();
 		this.contactForm();
 		this.svgChecks();
+		this.mobileMenu();
 	},
 
 	svgDividers : {
@@ -22,6 +23,15 @@ var Lavish = {
 			beenDrawn : false
 		}
 
+	},
+
+	mobileMenu : function(){
+		var $nav = $('nav');
+
+		$nav.on('click', '#menuToggle', function(e) {
+			e.preventDefault();
+			$nav.toggleClass('is-open');
+		});
 	},
 
 	slider : function() {
