@@ -117,33 +117,50 @@ section {
 .Section--divider {
     text-align: center;
 
-	span {
-		transition: all .75s ease-in-out .25s;
-		display: inline-block;
-    	display: flex;
-    	align-items: center;
-		width: 150px;
-		height: 60px;
-		opacity: 0;
+    aside {
+    	display: inline-block;
+    	border-radius: 20px;
+    	height: 5px;
+    	width: 100%;
+    	position: relative;
+    	margin: 0;
+    	overflow: hidden;
+    	background: linear-gradient(90deg, rgba(white, .5) 0%, rgba(black, .5) 100%);
 
-		&.Swirl--right {
-			transition: all .75s ease-in-out .35s;
-		}
+    	span {
+    		@extend %fill;
+    		transition: all .75s ease-in-out;
+    		background: white;
+    		height: 5px;
+    		transform: translateX(0%);
+    	}
 
-		svg {
-			width: 100%;
-			fill: $gray;
-		}
+    	&:last-of-type {
+    		background: linear-gradient(90deg, rgba(black, .5) 0%, rgba(white, .5) 100%);
+    	}
+    }
 
-		&.is-faded-in {
-			opacity: 1;
-		}
-	}
+    &.is-visible {
+    	aside {
+    			
+    		span {
+    			transform: translate(-100%);
+    		}
+
+    		&:last-of-type {
+    			
+    			span {
+    				transform: translateX(100%);
+    			}
+    		}
+    	}
+    }
 
 	i {
 		display: inline-block;
 		width: 75px;
 	    margin: 0 2rem;
+	    background: white;
 
 		svg {
 			max-width: 100%;
@@ -197,6 +214,7 @@ section {
 	li {
 		position: relative;
 		width: 33.333%;
+		max-width: 100%;
 		height: 100%;
 		float: left;
 		margin: 0;

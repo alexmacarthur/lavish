@@ -119,13 +119,14 @@ var Lavish = {
     },
 
     svgChecks : function() {
-    	Object.keys(Lavish.svgDividers).forEach(function(key) {
-			if(Lavish._isVisible($('#divider' + Lavish.svgDividers[key]['name']))) {
-				var element = 'svg' + Lavish.svgDividers[key]['name'];
-				$('#' + element + 'Left').addClass('is-faded-in');
-				$('#' + element + 'Right').addClass('is-faded-in');
+    	dividers = $('.Section--divider');
+
+    	for(var i = 0; i < dividers.length; i++) {
+    		$divider = $(dividers[i]);
+    		if(Lavish._isVisible($divider)) {
+				$divider.addClass('is-visible');
 			}
-	    });
+    	}
     }
 };
 
