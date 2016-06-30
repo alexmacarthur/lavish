@@ -27,12 +27,16 @@ aside {
 .Header {
 	position: relative;
     z-index: 1;
+    margin-bottom: 3rem;
 
 	ul {
+	    margin: 0;
+
 		li {
 			border: 0;
 			background: $gray;
-			height: 2px;
+			height: 4px;
+			border-radius: 100px;
 			max-width: 250px;
 			margin: auto;
 
@@ -104,12 +108,6 @@ section {
 	background-repeat: no-repeat;
 }
 
-.Section--hero {
-	background: gray;
-	height: 500px;
-	overflow: hidden;
-}
-
 .Section--about {
 	padding: 9rem 0;
 }
@@ -120,27 +118,33 @@ section {
     aside {
     	display: inline-block;
     	border-radius: 20px;
-    	height: 5px;
-    	width: 100%;
+    	height: 3px;
+    	min-width: 25%;
+    	max-width: 500px;
     	position: relative;
     	margin: 0;
     	overflow: hidden;
-    	background: linear-gradient(90deg, rgba(white, .5) 0%, rgba(black, .5) 100%);
+    	background: linear-gradient(90deg, rgba(white, .75) 0%, rgba($gray, .25) 100%);
 
     	span {
     		@extend %fill;
-    		transition: all .75s ease-in-out;
+    		transition: all .5s ease-in-out;
     		background: white;
     		height: 5px;
     		transform: translateX(0%);
     	}
 
     	&:last-of-type {
-    		background: linear-gradient(90deg, rgba(black, .5) 0%, rgba(white, .5) 100%);
+    		background: linear-gradient(90deg, rgba($gray, .25) 0%, rgba(white, .5) 100%);
     	}
     }
 
     &.is-visible {
+
+    	i {
+			opacity: 1;
+    	}
+
     	aside {
     			
     		span {
@@ -161,12 +165,14 @@ section {
 		width: 75px;
 	    margin: 0 2rem;
 	    background: white;
+	    opacity: 0;
+	    transition: opacity .5s ease-in-out;
 
 		svg {
 			max-width: 100%;
 
 			path {
-				fill: $gray;
+				fill: rgba($gray, .25);
 			}
 		}
 	}
@@ -207,75 +213,59 @@ section {
 	}
 }
 
-.Hero-images {
-	@extend %fill;
-	margin: 0;
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
 
-	li {
+.Section--hero {
+	background: url('https://static.pexels.com/photos/29593/pexels-photo-large.jpg') no-repeat;
+	background-size: cover;
+	background-position: center;
+	height: 500px;
+	overflow: hidden;
+	display: flex;
+    flex-direction: column;
+    padding: 0;
+
+	&:after {
+		@extend %fill;
+		content: '';
+		background: rgba(black, .7);
+	}
+
+	h1 {
+		flex: 100%;
 		position: relative;
-		width: 33.333%;
-		max-width: 100%;
-		height: 100%;
-		float: left;
-		margin: 0;
-	    overflow: hidden;
-        padding: 1rem 2rem;
-	    background: url('https://static.pexels.com/photos/29593/pexels-photo-large.jpg') no-repeat;
-		background-size: cover;
-		background-position: center;
+    	z-index: 1;
+	    align-items: center;
+    	display: flex;
+ 	   	justify-content: center;
+	}
 
-		&:nth-child(2) {
-			background-image: url('https://static.pexels.com/photos/51969/model-female-girl-beautiful-51969-large.jpeg');
-		}	
+	ul {
+		text-align: center;
+		display: flex;
+	    justify-content: center;
 
-		&:nth-child(3) {
-			background-image: url('https://static.pexels.com/photos/26739/pexels-photo-26739-large.jpg');
-		}
-
-		&:before {
-			@extend %fill;
-			transition: opacity .35s ease-in-out;
-			content: '';
-			background: black;
-			opacity: 0;
-		}
-
-		div {
-			position: relative;
-			top: 50%;
-			transform: translateY(-50%);
-		}
-
-		h2 {
-			transition: top .35s ease-in-out;
-			text-align: center;
+		li {
+			@extend h2;
+			font-size: 8rem;
 			color: white;
-			width: 100%;
-			font-size: 6rem;
-    		font-weight: 100;
-		    display: block;
-		}
-
-		p {
-			transition: max-height .35s ease-in-out 0s, opacity .35s ease-in-out 0s;
-			color: white;
+			display: inline;
 			opacity: 0;
-			display: block;
-			max-height: 0;
-			overflow: hidden;
-			margin: 0;
+
+			& + li {
+				margin-left: 2rem;
+			}
+
+			@for $i from 1 through 7 {
+				$delay: (.025 * $i) + .25;
+				&:nth-child(#{$i}) {
+					animation: fadeIn 2s ease-in-out #{$delay}s forwards
+				}
+			}
 		}
-
-	    &:hover {
-	    	&:before {
-				opacity: .6;
-	    	}
-
-	    	p {
-	    		max-height: 150px;
-	    		opacity: 1;
-	    	}
-	    }
 	}
 }
 
@@ -323,22 +313,18 @@ section {
 	    display: inline-block !important;
 	    position: absolute;
     	bottom: 0;
-    	transition: all .25s ease-in-out;
+    	transition: all .15s ease-in-out;
+
+    	&:hover {
+    		transform: scale(1.25);
+    	}
 
 	    &:last-child {
 	    	left: 51%;
-
-	    	&:hover {
-	    		left: 51.5%;
-	    	}
 	    }
 
 	    &:first-child {
 	    	right: 51%;
-
-	    	&:hover {
-	    		right: 51.5%;
-	    	}
 	    }
 
 	    a {

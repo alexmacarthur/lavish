@@ -7,6 +7,7 @@ header {
 
 	ul {
 		@extend .Container;
+		max-width: 1200px;
 		width: 100%;
 		text-align: center;
 		display: flex;
@@ -106,8 +107,7 @@ nav {
 				}
 
 			a {
-				text-transform: uppercase;
-			    font-size: 2rem;
+			    font-size: 2.5rem;
 
 			    @include media($phablet) {
 			    	color: white;
@@ -132,7 +132,8 @@ nav {
 	display: block;
     width: 100%;
     text-align: center;
-    position: absolute;
-    bottom: .5rem;
-    font-size: 2rem;
+    position: relative;
+    font-size: 3rem;
+    z-index: 5;
+    color: white;
 }
