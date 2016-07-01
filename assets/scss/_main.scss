@@ -15,19 +15,33 @@ aside {
 	width: 46%;
 	float: left;
 
+	@include media($phablet) {
+		width: 100%;
+		float: none;
+	}
+
 	* {
 		text-align: left;
 	}
 
 	&:first-child {
 		margin-right: 8%;
+
+		@include media($phablet) {
+			margin: 0;
+		}
 	}
 }
 
 .Header {
+	@extend .Container;
 	position: relative;
     z-index: 1;
     margin-bottom: 3rem;
+
+    h2 {
+	    margin-bottom: 1rem;
+    }
 
 	ul {
 	    margin: 0;
@@ -39,6 +53,10 @@ aside {
 			border-radius: 100px;
 			max-width: 250px;
 			margin: auto;
+
+			@include media($mobile) {
+				height: 3px;
+			}
 
 			&:last-child {
 				max-width: 150px;
@@ -83,7 +101,7 @@ aside {
 	}
 
 	.Logo {
-		padding: 2.5rem 0 5rem;
+		padding: 3.5rem 0 2.5rem;
 	}
 
 	svg {
@@ -227,7 +245,7 @@ section {
 	background-position: center;
 	height: 500px;
 	overflow: hidden;
-    padding: 0;
+    padding: 2rem;
 
 	&:after {
 		@extend %fill;
@@ -247,11 +265,15 @@ section {
 		position: relative;
 		font-size: 6rem;
     	z-index: 1;
-    	display: flex;
- 	   	justify-content: center;
+    	line-height: 1.25;
  	   	margin: 0;
  	   	color: white;
  	   	font-weight: normal;
+ 	   	text-align: center;
+
+   	    @include media($mobile) {
+	    	font-size: 4.5rem;
+	    }
 	}
 
 	ul {
@@ -273,6 +295,11 @@ section {
 				margin-left: 5rem;
 			    padding-left: 1rem;
 
+			    @include media($mobile) {
+			    	margin-left: 2rem;
+			    	padding-left: 1rem;
+			    }
+
 				&:before {
 					content: '';
 					display: block;
@@ -282,6 +309,10 @@ section {
 					position: absolute;
 					top: 45%;
 					transform: translateY(-50%);
+
+				    @include media($mobile) {
+				    	width: 10px;
+				    }
 				}
 
 				&:before {
@@ -313,12 +344,13 @@ section {
 
 .Slider {
 	margin-bottom: 0;
-    margin-top: 0;
+    margin-top: -3rem;
 
 	li {
 		position: relative;
 	    padding: 2rem;
 	    text-align: center;
+        margin-bottom: 0;
 
 	    div {
 			background: white;
@@ -349,29 +381,26 @@ section {
 
 .SliderNav {
     text-align: center;
-    margin: 1rem 0 0;
+    margin: 0;
 
 	li {
 	    display: inline-block !important;
-	    position: absolute;
     	bottom: 0;
     	transition: all .15s ease-in-out;
+	    opacity: .75;
+	    margin-top: 0;
 
-    	&:hover {
-    		transform: scale(1.25);
-    	}
-
-	    &:last-child {
-	    	left: 51%;
+	    &:hover {
+	    	opacity: 1;
 	    }
 
 	    &:first-child {
-	    	right: 51%;
+	    	margin-right: 2rem;
 	    }
 
 	    a {
 	    	cursor: pointer;
-    	    font-size: 3rem;	
+    	    font-size: 2.5rem;	
 	    }
 	}
 }
@@ -384,6 +413,14 @@ section {
 	li {
 		flex: 1 0 33%;
 		font-size: 3rem;
+
+		@include media($phablet) {
+			flex: 1 0 50%;
+		}
+
+		@include media($mobile) {
+			font-size: 2.5rem;
+		}
 	}
 }
 
@@ -396,7 +433,11 @@ section {
 }
 
 .ContactList {
-	margin-left: 3rem;
+	margin: 0 0 0 3rem;
+
+	@include media($phablet) {
+		margin: 4rem 0 4rem 3rem;
+	}
 
 	li {
 		position: relative;

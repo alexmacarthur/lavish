@@ -4,8 +4,19 @@ footer {
 	text-align: center;
     padding: 3rem 2rem;
 
+    @include media($phablet) {
+    	padding: 3rem 2rem;
+    }
+
+    .Logo {
+    	svg {
+    		fill: white;
+    		max-width: 200px;
+    	}
+    }
+
 	h4 {
-	    margin: 1rem;
+	    margin: 1rem 1rem 0;
 	}
 
 	* {
@@ -19,14 +30,26 @@ footer {
 	    justify-content: center;
         align-items: center;
 
+        @include media($phablet) {
+        	display: block;
+        }
+
 		li {
 			margin: 0;
 			display: inline-block;
 			float: left;
 			text-align: center;
 
+	        @include media($phablet) {
+        		width: 100%;
+        	}
+
 			& + li {
 				margin-left: 8rem;
+
+		        @include media($phablet) {
+	        		margin: 2rem 0 0;
+	        	}
 			}
 		}
 	}

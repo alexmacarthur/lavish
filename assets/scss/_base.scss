@@ -49,6 +49,11 @@ h2 {
     margin: 0;
 	font-size: 5rem;
     font-weight: 400;
+    line-height: 1.15;
+
+    @include media($mobile) {
+    	font-size: 4rem;
+    }
 }
 
 section {

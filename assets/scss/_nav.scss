@@ -21,20 +21,48 @@ header {
     width: 100%;
     z-index: 2;
 
+    strong {
+    	display: none;
+    	text-transform: none;
+
+    	@include media($mobile) {
+    		display: inline;
+    	}
+    }
+
 	ul {
     	justify-content: space-around;
+
+    	@include media($mobile) {
+    		padding: 0;
+    	}
 
 		li {
 			display: inline;
 			display: flex;
 			align-items: center;
+			flex-wrap: wrap;
+			position: relative;
+
+			@include media($mobile) {
+			    display: none;
+			}
 
 			&:last-child {
+
+				@include media($mobile) {
+					display: flex;
+				}
+
 				a {
 				    font-size: 1.85rem;
 
         			@include media($phablet) {
 	    			    font-size: 1.45rem;
+	    			}
+
+	    			@include media($mobile) {
+    				    font-size: 2.45rem;
 	    			}
 				}
 			}
@@ -48,6 +76,10 @@ header {
     			@include media($phablet) {
     			    font-size: 1.25rem;
     			}
+
+    			@include media($mobile) {
+    				font-size: 1.5rem;
+    			}
 			}
 
 			svg {
@@ -57,13 +89,17 @@ header {
     			@include media($phablet) {
     			    height: 20px;
     			}
+
+    			@include media($mobile) {
+					display: none;
+    			}
 			}
 		}
 	}
 }
 
 nav {
-    padding: 3rem 0;
+    padding: 3rem 0 0;
 
     @include media($phablet) {
     	transition: all .25s ease-in-out;
@@ -93,21 +129,25 @@ nav {
 		li {
 			display: inline;
 
-    			&:after {
-					content: '';
-					width: 100%;
-					height: 0;
-					background: $primary-color;
-				}
+			&:after {
+				content: '';
+				width: 100%;
+				height: 0;
+				background: $primary-color;
+			}
 
-				&:hover {
-					&:after {
-						height: 10px;
-					}
+			&:hover {
+				&:after {
+					height: 10px;
 				}
+			}
 
 			a {
 			    font-size: 2.5rem;
+
+			    @include media($desktop) {
+			    	font-size: 2rem;
+			    }
 
 			    @include media($phablet) {
 			    	color: white;
@@ -136,4 +176,6 @@ nav {
     font-size: 2.25rem;
     z-index: 5;
     color: $gray;
+    margin-bottom: 2.5rem;
+    padding: 0 2rem;
 }
