@@ -1,0 +1,48 @@
+[data-wipe] {  
+	display: inline-block;
+	overflow: hidden;
+	padding: 15px 18px 10px;
+	position: relative;
+	text-align: left;
+	color: white;
+	//border: 2px solid white;
+	
+	&:before, &:after {
+		background: white;
+		color: $gray;
+		content: attr(data-wipe);
+		padding-top: inherit;
+		padding-bottom: inherit;
+		white-space: nowrap;
+		position: absolute;
+		top: 0;
+		overflow: hidden;
+	}
+	
+	&:before {
+		left: 0;
+		text-indent: 18px;
+		width: 0;
+	}
+	
+	&:after {
+		padding-left: inherit;
+		padding-right: inherit;
+		left: 100%;
+		text-indent: calc(-100% - 36px);
+		transition: .3s ease-in-out;
+	}
+	
+	&:hover {
+		&:before {
+			width: 100%;
+			transition: width .3s ease-in-out;
+		}
+		
+		&:after {
+			left: 0;
+			text-indent: 0;
+			transition: 0s .3s ease-in-out;
+		}
+	}
+}
