@@ -270,6 +270,7 @@ section {
  	   	color: white;
  	   	font-weight: normal;
  	   	text-align: center;
+   	    margin-bottom: 3rem;
 
    	    @include media($mobile) {
 	    	font-size: 4.5rem;
