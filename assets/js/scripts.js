@@ -23,7 +23,42 @@ var Lavish = {
 			name: 'Shampoo',
 			beenDrawn : false
 		}
+	},
 
+	hours : {
+		0 : {
+			open: false,
+			close: false
+		}, 
+
+		1 : {
+			open: 16, 
+			close: 20, 
+		}
+	}, 
+
+	checkHours : function() {
+		var $hours = $('#hours');
+
+		var now = new Date();
+		var nowUTC = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
+		var day = now.getDay();
+		var offset = nowUTC.getTimezoneOffset() / 60;
+		var NOW = nowUTC.setHours(nowUTC.getHours() - offset);
+		var todayOpen = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  Lavish.hours[day].open, 0, 0);
+		var todayClose = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  Lavish.hours[day].close, 0, 0);
+		var OPEN = Math.floor(todayOpen);
+		var CLOSE = Math.floor(todayClose);
+
+		if(NOW > OPEN && NOW < CLOSE) {
+			$hours.html('Open \'til <span>' + Lavish._getNonMilitaryTime(Lavish.hours[day].close) + '</span>.');
+		} else {
+			$hours.html('Closed \'til <span>' + Lavish._getNonMilitaryTime(Lavish.hours[day].open) + '</span>.')
+		}
+	},
+
+	_getNonMilitaryTime : function(hours) {
+		return (hours > 12) ? hours - 12 + 'pm' : hours + 'am'; 
 	},
 
 	mobileMenu : function(){
@@ -91,11 +126,6 @@ var Lavish = {
 			});
 		});
 	},
-
-	parallax : function($el){
-	  	var scrolled = $(window).scrollTop();
-	  	$('.Background').css('top',-(scrolled*0.1)+'px');
-	}, 
 
 	_isVisible: function($el) {
       var win = $(window);
@@ -167,9 +197,9 @@ var Lavish = {
 $(document).ready(function() {
 
 	Lavish.init();
+	Lavish.checkHours();
 
 	$(window).scroll(function(e){
-	 	Lavish.parallax();
 	 	Lavish.svgChecks();
 	});
 

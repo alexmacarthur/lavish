@@ -21,6 +21,10 @@ header {
     width: 100%;
     z-index: 2;
 
+    span {
+    	font-weight: bold;
+    }
+
     strong {
     	display: none;
     	text-transform: none;
