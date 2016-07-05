@@ -40,7 +40,7 @@ aside {
     margin-bottom: 3rem;
 
     h2 {
-	    margin-bottom: 1rem;
+	    margin-bottom: 2.5rem;
     }
 
 	ul {
@@ -48,8 +48,8 @@ aside {
 
 		li {
 			border: 0;
-			background: $gray;
-			height: 4px;
+			background: $gray2;
+			height: 2px;
 			border-radius: 100px;
 			max-width: 250px;
 			margin: auto;
@@ -89,23 +89,6 @@ aside {
 .Logo--header {
 	@include media($phablet) {
 		display: none;
-	}
-}
-
-.MobileHeader {
-	display: none;
-    position: relative;
-
-	@include media($phablet) {
-		display: block;
-	}
-
-	.Logo {
-		padding: 3.5rem 0 2.5rem;
-	}
-
-	svg {
-		max-height: 100px;
 	}
 }
 
@@ -243,14 +226,14 @@ section {
 	background: url('https://static.pexels.com/photos/29593/pexels-photo-large.jpg') no-repeat;
 	background-size: cover;
 	background-position: center;
-	height: 500px;
-	overflow: hidden;
+	height: 600px;
+	overflow: visible;
     padding: 2rem;
 
 	&:after {
 		@extend %fill;
 		content: '';
-		background: rgba(black, .7);
+		background: rgba(white, .7);
 	}
 
 	.Wrapper {
@@ -267,7 +250,7 @@ section {
     	z-index: 1;
     	line-height: 1.25;
  	   	margin: 0;
- 	   	color: white;
+ 	   	color: $gray;
  	   	font-weight: normal;
  	   	text-align: center;
    	    margin-bottom: 3rem;
@@ -286,7 +269,7 @@ section {
 
 		li {
 			position: relative;
-			color: white;
+			color: $gray;
 			display: inline;
 			opacity: 0;
 			margin: 0;
@@ -306,7 +289,7 @@ section {
 					display: block;
 					width: 40px;
 					height: 1px;
-					background: white;
+					background: $gray;
 					position: absolute;
 					top: 45%;
 					transform: translateY(-50%);
@@ -335,11 +318,33 @@ section {
     	z-index: 1;
 		
 		a {
-			color: white;
+			color: $gray;
 		    font-size: 2.5rem;
 		    font-weight: 100;
 		    border-radius: 5px;
 		}
+	}
+}
+
+.FancyDivider {
+	position: absolute;
+	width: 100%;
+	border-top: 7px solid rgba($secondary-color, .75);
+	top: 5px;
+	left: 0;
+	z-index: 1;
+}
+
+.FancyDivider-stripe {
+	&:first-child {
+		height: 5px;
+		margin: 8px 0;
+		background: rgba($secondary-color, .5);
+	}
+
+	&:last-child {
+		height: 3px;
+		background: rgba($secondary-color, .25);
 	}
 }
 

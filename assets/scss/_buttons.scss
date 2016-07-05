@@ -4,12 +4,12 @@
 	padding: 15px 18px 10px;
 	position: relative;
 	text-align: left;
-	color: white;
-	border: 2px solid white;
+	color: $gray;
+	border: 2px solid $gray;
 	
 	&:before, &:after {
-		background: white;
-		color: $gray;
+		background: $gray;
+		color: white;
 		content: attr(data-wipe);
 		padding-top: inherit;
 		padding-bottom: inherit;

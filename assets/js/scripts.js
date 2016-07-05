@@ -74,8 +74,6 @@ var Lavish = {
 		var nowUTC = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
 		var day = now.getDay();
 
-		console.log(day);
-
 		var offset = nowUTC.getTimezoneOffset() / 60;
 		var NOW = nowUTC.setHours(nowUTC.getHours() - offset);
 		var todayOpen = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  Lavish.hours[day].open, 0, 0);
@@ -94,11 +92,23 @@ var Lavish = {
 
 	mobileMenu : function(){
 		var $nav = $('nav');
+		var $navList = $nav.find('ul');
 
-		$nav.on('click', '#menuToggle', function(e) {
+		$('#menuToggle').on('click', function(e) {
 			e.preventDefault();
-			$nav.toggleClass('is-open');
+			$nav.addClass('is-open');
 		});
+
+		$('#menuClose').on('click', function(e) {
+			$nav.removeClass('is-open');
+		});
+
+		$navList.find('a').on('click', function(e) {
+			$nav.removeClass('is-open');
+		});
+
+		var newMargin = ($(window).outerHeight() - $navList.outerHeight()) / 2;
+		$navList.css('margin-top', newMargin);
 	},
 
 	slider : function() {
