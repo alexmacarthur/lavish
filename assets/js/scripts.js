@@ -33,7 +33,37 @@ var Lavish = {
 
 		1 : {
 			open: 16, 
-			close: 20, 
+			close: 20
+		},
+
+		2 :  {
+			open: 12, 
+			close: 20
+		},
+
+		3 : {
+			open: 9, 
+			close: 18
+		},
+
+		4 : {
+			open: 9, 
+			close: 18
+		},
+
+		5 : {
+			open: 9, 
+			close: 18
+		},
+
+		6 : {
+			open: 9,
+			close: 14
+		},
+
+		7 : {
+			open: 9, 
+			close: 12
 		}
 	}, 
 
@@ -43,6 +73,9 @@ var Lavish = {
 		var now = new Date();
 		var nowUTC = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
 		var day = now.getDay();
+
+		console.log(day);
+
 		var offset = nowUTC.getTimezoneOffset() / 60;
 		var NOW = nowUTC.setHours(nowUTC.getHours() - offset);
 		var todayOpen = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  Lavish.hours[day].open, 0, 0);

@@ -89,6 +89,7 @@ header {
 			svg {
 				height: 25px;
     			margin: 0 1rem 0;
+			    position: absolute;
 
     			@include media($phablet) {
     			    height: 20px;
