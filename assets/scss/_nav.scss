@@ -148,6 +148,13 @@ nav {
 
 			a {
 			    font-size: 2.5rem;
+			    position: relative;		
+
+			    &:hover {
+			    	&:after {
+			    		width: 100%;
+			    	}
+			    }
 
 			    @include media($desktop) {
 			    	font-size: 2rem;
@@ -155,6 +162,18 @@ nav {
 
 			    @include media($phablet) {
 			    	color: white;
+			    }
+
+			    &:after {
+			    	transition: all .15s ease-in-out;
+			    	content: '';
+			    	display: block;
+			    	position: absolute;
+			    	height: 2px; 
+			    	width: 0px;
+			    	left: 50%;
+			    	transform: translateX(-50%);
+			    	background: $secondary-color;
 			    }
 			}
 		}

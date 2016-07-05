@@ -52,8 +52,6 @@ var Lavish = {
 
 		if(NOW > OPEN && NOW < CLOSE) {
 			$hours.html('Open \'til <span>' + Lavish._getNonMilitaryTime(Lavish.hours[day].close) + '</span>.');
-		} else {
-			$hours.html('Closed \'til <span>' + Lavish._getNonMilitaryTime(Lavish.hours[day].open) + '</span>.')
 		}
 	},
 
