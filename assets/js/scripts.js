@@ -6,6 +6,13 @@ var Lavish = {
 		this.svgChecks();
 		this.mobileMenu();
 		this.smoothScroll();
+		this.mobileMenuMargin();
+		this.checkHours();
+	},
+
+	elements : {
+		$nav : $('nav'),
+		$navList : $('nav').find('ul')
 	},
 
 	svgDividers : {
@@ -91,24 +98,28 @@ var Lavish = {
 	},
 
 	mobileMenu : function(){
-		var $nav = $('nav');
-		var $navList = $nav.find('ul');
 
 		$('#menuToggle').on('click', function(e) {
 			e.preventDefault();
-			$nav.addClass('is-open');
-		});
+			this.elements.$nav.addClass('is-open');
+		}.bind(this));
 
 		$('#menuClose').on('click', function(e) {
-			$nav.removeClass('is-open');
-		});
+			this.elements.$nav.removeClass('is-open');
+		}.bind(this));
 
-		$navList.find('a').on('click', function(e) {
-			$nav.removeClass('is-open');
-		});
+		this.elements.$navList.find('a').on('click', function(e) {
+			this.elements.$nav.removeClass('is-open');
+		}.bind(this));
+	},
 
-		var newMargin = ($(window).outerHeight() - $navList.outerHeight()) / 2;
-		$navList.css('margin-top', newMargin);
+	mobileMenuMargin : function() {
+		if($(window).outerWidth() < 768) {
+			var newMargin = ($(window).outerHeight() - this.elements.$navList.outerHeight()) / 2;
+			this.elements.$navList.css('margin-top', newMargin);
+		} else {
+			this.elements.$navList.css('margin-top', '');
+		}
 	},
 
 	slider : function() {
@@ -238,10 +249,10 @@ var Lavish = {
 $(document).ready(function() {
 
 	Lavish.init();
-	Lavish.checkHours();
 
 	$(window).scroll(function(e){
 	 	Lavish.svgChecks();
+	 	Lavish.mobileMenuMargin();
 	});
 
 });
