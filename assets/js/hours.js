@@ -43,6 +43,11 @@ var Hours = {
             request.execute(function (resp) {
                 var $hoursList = $('#hoursList');
                 $hoursList.html('');
+
+                var now = new Date();
+                var nowUTC = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
+                var day = now.getDay();
+
                 for(var i = 0; i < resp.items.length; i++) {
                     var startDate = new Date(resp.items[i].start.dateTime);
                     var closeDate = new Date(resp.items[i].end.dateTime);
@@ -57,10 +62,30 @@ var Hours = {
                     closeTime = closeTime > 12 ? closeTime - 12 : openTime;
 
                     $hoursList.append('<li><strong>' + dayString + ':</strong>' + openTime + openTimeSuffix + ' - ' + closeTime + closeTimeSuffix + '</li>');
+
+                    if(startDate.getDay() === day) {
+                        var $topBarHours = $('#hours');
+                        var offset = nowUTC.getTimezoneOffset() / 60;
+                        var NOW = nowUTC.setHours(nowUTC.getHours() - offset);
+                        var OPEN = Math.floor(startDate);
+                        var CLOSE = Math.floor(closeDate);
+
+                        if(NOW > OPEN && NOW < CLOSE) {
+                            $topBarHours.html('Open \'til <span>' + closeTime + closeTimeSuffix + '</span>.');
+                        } else {
+                            $topBarHours.html('Closed Now &mdash; <span>View Hours</span>');
+                        }
+                    }
+
                 }
+
             });
         });
     }, 
+
+     getNonMilitaryTime : function(hours) {
+        return (hours > 12) ? hours - 12 + 'pm' : hours + 'am'; 
+    },
 
     getDayString : function(int) {
         switch(int) {

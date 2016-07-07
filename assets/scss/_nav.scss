@@ -105,7 +105,7 @@ header {
 }
 
 nav {
-    padding: 3rem 0 3rem;
+    padding: 3rem 0 1rem;
 
     @include media($phablet) {
     	transition: all .25s ease-in-out;
@@ -239,6 +239,5 @@ nav {
     font-size: 2rem;
     z-index: 1;
     color: $gray;
-    padding: 2.25rem 2rem;
-    border-top: 1px solid rgba($secondary-color, .12);
+    padding: 0 2rem 6rem;
 }

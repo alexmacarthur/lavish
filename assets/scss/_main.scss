@@ -173,7 +173,7 @@ section {
 	    transition: opacity .5s ease-in-out;
 
 		svg {
-			max-width: 100%;
+			max-width: 75%;
 
 			path {
 				fill: rgba($gray, .25);
@@ -333,6 +333,12 @@ section {
 	top: 5px;
 	left: 0;
 	z-index: 1;
+}
+
+.FancyDivider--above {
+	bottom: 5px;
+    top: auto;
+    transform: rotate(180deg);
 }
 
 .FancyDivider-stripe {
