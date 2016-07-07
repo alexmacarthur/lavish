@@ -41,14 +41,52 @@ var Hours = {
                 'orderBy': 'startTime'});
 
             request.execute(function (resp) {
+                var $hoursList = $('#hoursList');
+                $hoursList.html('');
                 for(var i = 0; i < resp.items.length; i++) {
-                    console.log(resp.items[i].start);
-                    console.log(resp.items[i].end);
-                    console.log('---');
+                    var startDate = new Date(resp.items[i].start.dateTime);
+                    var closeDate = new Date(resp.items[i].end.dateTime);
+                    var dayString = Hours.getDayString(startDate.getUTCDay());
+
+                    var openTime = startDate.getHours();
+                    var openTimeSuffix = openTime >= 12 ? 'pm' : 'am';
+                    openTime = openTime > 12 ? openTime - 12 : openTime;
+
+                    var closeTime = closeDate.getHours();
+                    var closeTimeSuffix = closeTime >= 12 ? 'pm' : 'am';
+                    closeTime = closeTime > 12 ? closeTime - 12 : openTime;
+
+                    $hoursList.append('<li><strong>' + dayString + ':</strong>' + openTime + openTimeSuffix + ' - ' + closeTime + closeTimeSuffix + '</li>');
                 }
             });
         });
     }, 
+
+    getDayString : function(int) {
+        switch(int) {
+            case 0:
+                return 'Sunday'
+                break;
+            case 1:
+                return 'Monday'
+                break;
+            case 2:
+                return 'Tuesday'
+                break;
+            case 3:
+                return 'Wednesday'
+                break;
+            case 4:
+                return 'Thursday'
+                break;
+            case 5:
+                return 'Friday'
+                break;
+            case 6:
+                return 'Saturday'
+                break;
+        }
+    },
 
     updateHours : function() {
 
