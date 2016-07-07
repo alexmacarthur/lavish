@@ -7,7 +7,6 @@ var Lavish = {
 		this.mobileMenu();
 		this.smoothScroll();
 		this.mobileMenuMargin();
-		this.checkHours();
 	},
 
 	elements : {
@@ -73,25 +72,6 @@ var Lavish = {
 			close: 12
 		}
 	}, 
-
-	checkHours : function() {
-		var $hours = $('#hours');
-
-		var now = new Date();
-		var nowUTC = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
-		var day = now.getDay();
-
-		var offset = nowUTC.getTimezoneOffset() / 60;
-		var NOW = nowUTC.setHours(nowUTC.getHours() - offset);
-		var todayOpen = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  Lavish.hours[day].open, 0, 0);
-		var todayClose = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  Lavish.hours[day].close, 0, 0);
-		var OPEN = Math.floor(todayOpen);
-		var CLOSE = Math.floor(todayClose);
-
-		if(NOW > OPEN && NOW < CLOSE) {
-			$hours.html('Open \'til <span>' + Lavish._getNonMilitaryTime(Lavish.hours[day].close) + '</span>.');
-		}
-	},
 
 	_getNonMilitaryTime : function(hours) {
 		return (hours > 12) ? hours - 12 + 'pm' : hours + 'am'; 

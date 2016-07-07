@@ -19,16 +19,24 @@ var Hours = {
 
     makeAPICall : function() {
         var today = new Date(); 
-        var tomorrow = new Date();
-        tomorrow.setTime(tomorrow.getTime() + (24*60*60*1000));
+        var mostRecentSunday = (function() {
+            var d = new Date(today);
+            d.setDate(d.getDate() - d.getDay());
+            return d;
+        })();
+        var upcomingSaturday = (function() {
+            var d = new Date(today.getTime());
+            d.setDate(today.getDate() + (13 - today.getDay()) % 7);
+            return d;
+        })();
 
         gapi.client.load('calendar', 'v3', function () {
             var request = gapi.client.calendar.events.list({
                 'calendarId' : Hours.calendarID,
                 'timeZone' : Hours.userTimeZone, 
                 'singleEvents': true, 
-                'timeMin': today.toISOString(),
-                'timeMax': tomorrow.toISOString(),
+                'timeMin': mostRecentSunday.toISOString(),
+                'timeMax': upcomingSaturday.toISOString(),
                 'maxResults': 10, 
                 'orderBy': 'startTime'});
 
@@ -40,7 +48,27 @@ var Hours = {
                 }
             });
         });
-    }
+    }, 
+
+    updateHours : function() {
+
+        // var $hours = $('#hours');
+
+        // var now = new Date();
+        // var nowUTC = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
+        // var day = now.getDay();
+
+        // var offset = nowUTC.getTimezoneOffset() / 60;
+        // var NOW = nowUTC.setHours(nowUTC.getHours() - offset);
+        // var todayOpen = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  Lavish.hours[day].open, 0, 0);
+        // var todayClose = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  Lavish.hours[day].close, 0, 0);
+        // var OPEN = Math.floor(todayOpen);
+        // var CLOSE = Math.floor(todayClose);
+
+        // if(NOW > OPEN && NOW < CLOSE) {
+        //     $hours.html('Open \'til <span>' + Lavish._getNonMilitaryTime(Lavish.hours[day].close) + '</span>.');
+        // }
+    },
 }
 
 var initHours = function() {
