@@ -6,6 +6,7 @@ var sass = require('gulp-sass');
 var rename = require("gulp-rename");
 var browserSync = require('browser-sync');
 var cp = require('child_process');
+var concat = require('gulp-concat');
 var jekyll = process.platform === "win32" ? "jekyll.bat" : "jekyll";
 
 gulp.task('build', function (done) {
@@ -32,9 +33,9 @@ gulp.task('jshint',function(){
 });
 
 gulp.task('scripts', function() {
-  gulp.src('assets/js/scripts.js')
+  gulp.src(['assets/js/scripts.js', 'assets/js/hours.js'])
+    .pipe(concat('scripts.min.js'))
     .pipe(uglify())
-    .pipe(rename('scripts.min.js'))
     .pipe(gulp.dest('assets/js'));
 });
 
@@ -47,7 +48,7 @@ gulp.task('sass',function(){
 
 gulp.task('watch', function() {
   gulp.watch('assets/js/*.js', ['jshint', 'scripts', 'rebuild']);
-  gulp.watch(['index.html', '_layouts/*', '_includes/*'], ['rebuild']);
+  gulp.watch(['*.html', '_layouts/*', '_includes/*'], ['rebuild']);
   gulp.watch('assets/scss/**/*.scss', ['sass', 'rebuild']);
 });
 
