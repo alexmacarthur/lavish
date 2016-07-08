@@ -3,8 +3,19 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-	<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+	<title>{{ site.title }}</title>
+	<meta name="description" content="{{ site.description }}">
+	<meta name="keywords" content="">
+	<meta property="og:image" content="">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="{{ site.name }}">
+	<meta property="og:url" content="{{ site.url }}">
+	<meta property="og:description" content="{{ site.description }}">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="{{ site.name }}">
+	<meta name="twitter:description" content="{{ site.description }}">
+	<meta name="twitter:image" content="">
+    
 	<link rel="stylesheet" href="{{ "assets/style.css" | prepend: site.baseurl }}">
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
 	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
