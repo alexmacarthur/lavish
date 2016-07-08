@@ -254,11 +254,17 @@ layout: default
             		<input id="formEmail" type="email" name="_replyto" required>
             	</p>
             	<p>
+            		<label>Phone Number</label>
+            		<input id="formPhone" type="tel" name="phone">
+            	</p>
+            	<p>
             		<label>Message</label>
             		<textarea rows="5" id="formMessage" name="message"></textarea>
             	</p>
             	<div class="Form--row">
 	            	<div id="statusMessages"></div>
+	            	<input type="text" name="_gotcha" style="display:none" />
+	            	<input type="hidden" name="_subject" value="New Lavish Salon &amp; Spa Form Submission" />
 		            <input class="ContactForm-submit" type="submit" value="Submit">
 	            </div>
 	        </form>

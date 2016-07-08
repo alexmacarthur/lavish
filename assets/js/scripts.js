@@ -31,52 +31,6 @@ var Lavish = {
 		}
 	},
 
-	hours : {
-		0 : {
-			open: false,
-			close: false
-		}, 
-
-		1 : {
-			open: 16, 
-			close: 20
-		},
-
-		2 :  {
-			open: 12, 
-			close: 20
-		},
-
-		3 : {
-			open: 9, 
-			close: 18
-		},
-
-		4 : {
-			open: 9, 
-			close: 18
-		},
-
-		5 : {
-			open: 9, 
-			close: 18
-		},
-
-		6 : {
-			open: 9,
-			close: 14
-		},
-
-		7 : {
-			open: 9, 
-			close: 12
-		}
-	}, 
-
-	_getNonMilitaryTime : function(hours) {
-		return (hours > 12) ? hours - 12 + 'pm' : hours + 'am'; 
-	},
-
 	mobileMenu : function(){
 
 		$('#menuToggle').on('click', function(e) {
@@ -134,6 +88,7 @@ var Lavish = {
 
 			var $formName = $('#formName');
 			var $formEmail = $('#formEmail');
+			var $formPhone = $('#formPhone');
 			var $formMessage = $('#formMessage');
 			var $statusMessages = $('#statusMessages');
 
@@ -145,12 +100,14 @@ var Lavish = {
 				data: {
 					name: $formName.val(),
 					email: $formEmail.val(),
-					message: $formMessage.val(),
+					phone: $formPhone.val(),
+					message: $formMessage.val()
 				},
 				dataType: "json"
 			}).done(function(response) {
 				$formName.val('');
 				$formEmail.val('');
+				$formPhone.val('');
 				$formMessage.val('');
 				$statusMessages.html('Your message was successfully sent! Thanks.').removeClass('form-failure').addClass('form-success');
 			}).fail(function(data) {
