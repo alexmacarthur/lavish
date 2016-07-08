@@ -37,7 +37,7 @@ var Hours = {
                 'singleEvents': true, 
                 'timeMin': mostRecentSunday.toISOString(),
                 'timeMax': upcomingSaturday.toISOString(),
-                'maxResults': 10, 
+                'maxResults': 20, 
                 'orderBy': 'startTime'});
 
             request.execute(function (resp) {
@@ -46,12 +46,15 @@ var Hours = {
 
                 var now = new Date();
                 var nowUTC = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
-                var day = now.getDay();
+                var thisDay = now.getDay();
+                var previousDayString = '';
 
                 for(var i = 0; i < resp.items.length; i++) {
                     var startDate = new Date(resp.items[i].start.dateTime);
                     var closeDate = new Date(resp.items[i].end.dateTime);
-                    var dayString = Hours.getDayString(startDate.getUTCDay());
+                    var dayString = Hours.getDayString(startDate.toString().split(' ')[0]);
+                    var sameDay = previousDayString === dayString;
+                    previousDayString = dayString;
 
                     var openTime = startDate.getHours();
                     var openTimeSuffix = openTime >= 12 ? 'pm' : 'am';
@@ -61,9 +64,13 @@ var Hours = {
                     var closeTimeSuffix = closeTime >= 12 ? 'pm' : 'am';
                     closeTime = closeTime > 12 ? closeTime - 12 : openTime;
 
-                    $hoursList.append('<li><strong>' + dayString + ':</strong>' + openTime + openTimeSuffix + ' - ' + closeTime + closeTimeSuffix + '</li>');
+                    if(sameDay) {
+                        $hoursList.find('li').last().append(', ' + openTime + openTimeSuffix + ' - ' + closeTime + closeTimeSuffix);
+                    } else {
+                        $hoursList.append('<li><strong>' + dayString + ':</strong>' + openTime + openTimeSuffix + ' - ' + closeTime + closeTimeSuffix + '</li>');
+                    }
 
-                    if(startDate.getDay() === day) {
+                    if(startDate.getDay() === thisDay) {
                         var $topBarHours = $('#hours');
                         var offset = nowUTC.getTimezoneOffset() / 60;
                         var NOW = nowUTC.setHours(nowUTC.getHours() - offset);
@@ -76,7 +83,6 @@ var Hours = {
                             $topBarHours.html('Closed Now &mdash; <span>View Hours</span>');
                         }
                     }
-
                 }
 
             });
@@ -89,25 +95,25 @@ var Hours = {
 
     getDayString : function(int) {
         switch(int) {
-            case 0:
+            case 'Sun':
                 return 'Sunday'
                 break;
-            case 1:
+            case 'Mon':
                 return 'Monday'
                 break;
-            case 2:
+            case 'Tue':
                 return 'Tuesday'
                 break;
-            case 3:
+            case 'Wed':
                 return 'Wednesday'
                 break;
-            case 4:
+            case 'Thu':
                 return 'Thursday'
                 break;
-            case 5:
+            case 'Fri':
                 return 'Friday'
                 break;
-            case 6:
+            case 'Sat':
                 return 'Saturday'
                 break;
         }
