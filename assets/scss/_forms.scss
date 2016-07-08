@@ -7,18 +7,21 @@
     color: white;
     padding: 1.25rem;
     position: absolute;
+    text-align: center;
+
+    @include media($mobile) {
+	    position: relative;
+	    width: 100%;
+	    margin-top: 2rem;
+    }
 
 	&[class^='form-'] {
 		opacity: 1;
 	}
-}
 
-.form-failure {
-
-}
-
-.form-success {
-
+	&.form-failure {
+		background: $red;
+	}
 }
 
 input,
@@ -37,21 +40,4 @@ form {
 	p {
 		text-align: left;
 	}
-}
-
-input[type='submit'] {
-	@extend %satisfy;
-	color: white;
-	background: $primary-color;
-    width: auto;
-	float: right;
-	padding: 1rem 3rem;
-    font-size: 2rem;
-    width: 115px;
-    display: block;
-    text-align: center;
-
-    &:hover {
-
-    }
 }

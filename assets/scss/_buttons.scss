@@ -6,6 +6,12 @@
 	text-align: left;
 	color: $gray;
 	border: 2px solid $gray;
+
+	@include media($mobile) {
+		text-align: center;
+		width: 100%;
+		float: none;
+	}
 	
 	&:before, &:after {
 		background: $gray;
@@ -17,6 +23,11 @@
 		position: absolute;
 		top: 0;
 		overflow: hidden;
+
+		@include media($mobile) {
+			content: '';
+			background: none;
+		}
 	}
 	
 	&:before {
@@ -43,6 +54,22 @@
 			left: 0;
 			text-indent: 0;
 			transition: 0s .3s ease-in-out;
+		}
+	}
+
+	&[type='submit'] {
+		@extend %satisfy;
+		color: white;
+		background: $primary-color;
+		float: right;
+	    font-size: 2rem;
+	    display: block;
+	    border-radius: 5px;
+		border: 0;
+
+		&:before,
+		&:after {
+			border: 0;
 		}
 	}
 }

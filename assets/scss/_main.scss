@@ -22,6 +22,7 @@ aside {
 
 	* {
 		text-align: left;
+	 	word-wrap: break-word;
 	}
 
 	&:first-child {
@@ -322,6 +323,10 @@ section {
 		    font-size: 2.5rem;
 		    font-weight: 100;
 		    border-radius: 5px;
+
+		    @include media($mobile) {
+		    	font-size: 2rem;
+		    }
 		}
 	}
 }

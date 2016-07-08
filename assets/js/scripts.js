@@ -91,28 +91,31 @@ var Lavish = {
 			var $formPhone = $('#formPhone');
 			var $formMessage = $('#formMessage');
 			var $statusMessages = $('#statusMessages');
-
 			$statusMessages.removeClass('failure success');
 
-			$.ajax({
-				url: "//formspree.io/alex@macarthur.me",
-				method: "POST",
-				data: {
-					name: $formName.val(),
-					email: $formEmail.val(),
-					phone: $formPhone.val(),
-					message: $formMessage.val()
-				},
-				dataType: "json"
-			}).done(function(response) {
-				$formName.val('');
-				$formEmail.val('');
-				$formPhone.val('');
-				$formMessage.val('');
-				$statusMessages.html('Your message was successfully sent! Thanks.').removeClass('form-failure').addClass('form-success');
-			}).fail(function(data) {
-				$statusMessages.html('Sorry, an something\'s messed up. Refresh the page to try again, or just send an email to alex@macarthur.me.').removeClass('form-success').addClass('form-failure');
-			});
+			if($formMessage.val() === '') {
+				$statusMessages.html('A message is required.').addClass('form-failure');					
+			} else {
+				$.ajax({
+					url: "//formspree.io/alex@macarthur.me",
+					method: "POST",
+					data: {
+						name: $formName.val(),
+						email: $formEmail.val(),
+						phone: $formPhone.val(),
+						message: $formMessage.val()
+					},
+					dataType: "json"
+				}).done(function(response) {
+					$formName.val('');
+					$formEmail.val('');
+					$formPhone.val('');
+					$formMessage.val('');
+					$statusMessages.html('Your message was successfully sent! Thanks.').removeClass('form-failure').addClass('form-success');
+				}).fail(function(data) {
+					$statusMessages.html('Sorry, an something\'s messed up. Refresh the page to try again, or just send an email to alex@macarthur.me.').removeClass('form-success').addClass('form-failure');
+				});
+			}
 		});
 	},
 

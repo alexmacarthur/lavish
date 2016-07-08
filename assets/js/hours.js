@@ -77,6 +77,9 @@ var Hours = {
                         var OPEN = Math.floor(startDate);
                         var CLOSE = Math.floor(closeDate);
 
+                        $('header').addClass('is-open');
+                        $('.TopBar').addClass('is-open');
+
                         if(NOW > OPEN && NOW < CLOSE) {
                             $topBarHours.html('Open \'til <span>' + closeTime + closeTimeSuffix + '</span>.');
                         } else {
