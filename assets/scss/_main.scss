@@ -386,7 +386,16 @@ section {
 		transform: translate(-50%, -50%);
 		background-size: cover;
 		background-position: center;
-		background: url('http://placehold.it/350x150');
+		background: $gray3;
+
+		svg {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -55%);
+			width: 55%;
+			fill: $gray;
+		}
 	}
 
 	p {
@@ -395,6 +404,11 @@ section {
 
 	.slick-list {
 		overflow: visible;
+		display: flex;
+	}
+
+	.slick-track {
+		display: flex;
 	}
 }
 
@@ -428,6 +442,7 @@ section {
 	position: relative;
 	display: block;
 	text-align: center;
+	margin-top: 0;
 
 	li {
 		display: inline-block;
@@ -436,6 +451,33 @@ section {
 		padding: 0 2rem;
 
 
+	}
+}
+
+.SPLabel {
+	font-size: 2rem;
+	position: relative;
+    margin-top: 3rem;
+    display: inline-block;
+
+	&:before, 
+	&:after {
+		position: absolute;
+		content: '';
+		display: block;
+		height: 2px; 
+		width: 50px;
+		background: white;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	&:before {
+		left: -60px;
+	}
+
+	&:after {
+		right: -60px;
 	}
 }
 
