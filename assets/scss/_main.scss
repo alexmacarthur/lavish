@@ -102,6 +102,7 @@ section {
 	position: relative;
 	padding: 4rem 0;
     overflow: hidden;
+    text-align: center;
     background: rgba(white, 1);
 }
 
@@ -210,7 +211,8 @@ section {
 	}
 }
 
-.Section--products {
+.Section--products, 
+.Section--services {
 	background: $primary-color;
 
 	* {
@@ -480,4 +482,30 @@ section {
 			margin-right: 1rem;
 		}
 	}
+}
+
+.Specials {
+	@extend .Container;
+	display: inline-block;
+	background: $red;
+	margin: 0 auto;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .25s ease-in-out;
+    border-radius: 5px;
+
+    li {
+        margin: 2rem auto 1rem;
+    	line-height: 1.25;
+    }
+    
+    * {
+    	text-transform: uppercase;
+    	line-height: 1;
+    }
+
+    &.is-open {
+    	max-height: 500px;
+    	margin-bottom: 1rem;
+    }
 }
