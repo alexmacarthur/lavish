@@ -2,7 +2,9 @@ var Hours = {
 
     clientId : '122433030124-1djhacg129qakh5021jlk0u0anipkls4.apps.googleusercontent.com',
     apiKey : 'AIzaSyDcSD_2cks7H1ybobhl5ac_sJxgVmk31OA',
-    calendarID : 'b4gv0ttqhjojjuioopc9n9jr18@group.calendar.google.com',
+    calendarIDHours : 'b4gv0ttqhjojjuioopc9n9jr18@group.calendar.google.com',
+    calendarIDServiceSpecials : 'vj9gu8ijet2fcgbll94de6gd6k@group.calendar.google.com',
+    calendarIDProductSpecials : 'pkt69je4oqfn0orvn3sblnbtgg@group.calendar.google.com',
     userTimeZone : 'Chicago',
     scopes : 'https://www.googleapis.com/auth/calendar',
 
@@ -31,8 +33,18 @@ var Hours = {
         })();
 
         gapi.client.load('calendar', 'v3', function () {
+
+            var todayBeginning = new Date();
+            todayBeginning.setHours(0,0,0,0);
+
+            var todayEnding = new Date();
+            todayEnding.setHours(23,59,59,999);
+
+            console.log(todayBeginning);
+            console.log(todayEnding);
+
             var request = gapi.client.calendar.events.list({
-                'calendarId' : Hours.calendarID,
+                'calendarId' : Hours.calendarIDHours,
                 'timeZone' : Hours.userTimeZone, 
                 'singleEvents': true, 
                 'timeMin': mostRecentSunday.toISOString(),
@@ -50,6 +62,9 @@ var Hours = {
                 var previousDayString = '';
 
                 for(var i = 0; i < resp.items.length; i++) {
+
+                    //console.log(resp.items[i]);
+
                     var startDate = new Date(resp.items[i].start.dateTime);
                     var closeDate = new Date(resp.items[i].end.dateTime);
                     var dayString = Hours.getDayString(startDate.toString().split(' ')[0]);
@@ -88,6 +103,32 @@ var Hours = {
                     }
                 }
 
+            });
+
+            var requestServiceSpecials = gapi.client.calendar.events.list({
+                'calendarId' : Hours.calendarIDServiceSpecials,
+                'timeZone' : Hours.userTimeZone, 
+                'singleEvents': true, 
+                'timeMin': mostRecentSunday.toISOString(),
+                'timeMax': upcomingSaturday.toISOString(),
+                'maxResults': 20, 
+                'orderBy': 'startTime'});
+
+            requestServiceSpecials.execute(function (resp) {
+                console.log(resp);
+            });
+
+            var requestProductSpecials = gapi.client.calendar.events.list({
+                'calendarId' : Hours.calendarIDProductSpecials,
+                'timeZone' : Hours.userTimeZone, 
+                'singleEvents': true, 
+                'timeMin': mostRecentSunday.toISOString(),
+                'timeMax': upcomingSaturday.toISOString(),
+                'maxResults': 20, 
+                'orderBy': 'startTime'});
+
+            requestProductSpecials.execute(function (resp) {
+                console.log(resp);
             });
         });
     }, 
