@@ -74,7 +74,7 @@ var Hours = {
 
                     var closeTime = closeDate.getHours();
                     var closeTimeSuffix = closeTime >= 12 ? 'pm' : 'am';
-                    closeTime = closeTime > 12 ? closeTime - 12 : openTime;
+                    closeTime = closeTime > 12 ? closeTime - 12 : closeTime;
 
                     if(sameDay) {
                         $hoursList.find('li').last().append(', ' + openTime + openTimeSuffix + ' - ' + closeTime + closeTimeSuffix);
