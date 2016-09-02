@@ -192,7 +192,10 @@ $(document).ready(function() {
 
 	$(window).scroll(function(e){
 	 	Lavish.svgChecks();
-	 	Lavish.mobileMenuMargin();
+	});
+
+	$(window).resize(function(e) {
+		Lavish.mobileMenuMargin();
 	});
 
 });

@@ -76,7 +76,7 @@ aside {
 }
 
 .Logo {
-	min-width: 200px;
+	width: 200px;
 
 	a {
 		display: block;
@@ -404,11 +404,11 @@ section {
 
 	.slick-list {
 		overflow: visible;
-		display: flex;
+		//display: flex;
 	}
 
 	.slick-track {
-		display: flex;
+		//display: flex;
 	}
 }
 
