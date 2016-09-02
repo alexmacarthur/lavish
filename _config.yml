@@ -1,7 +1,7 @@
 title: "Lavish Salon & Spa | 1 John 3:1"
 email: alex@macarthur.me
 description:
-baseurl: "http://lavishsalonspamn.com/"
+baseurl: "http://www.lavishsalonspamn.com/"
 url: ""
 exclude: [node_modules, gulpfile.js, Gemfile, Gemfile.lock, package.json]
 markdown: kramdown
