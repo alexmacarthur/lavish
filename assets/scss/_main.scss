@@ -64,7 +64,7 @@ aside {
 			    margin-top: 1rem;
 			}
 		}
-	}	
+	}
 }
 
 .Header--white {
@@ -152,13 +152,13 @@ section {
     	}
 
     	aside {
-    			
+
     		span {
     			transform: translate(-100%);
     		}
 
     		&:last-of-type {
-    			
+
     			span {
     				transform: translateX(100%);
     			}
@@ -197,7 +197,7 @@ section {
 
 .Section--testimonials {
 	@extend %overlay;
-	
+
 	.Background {
 		background-image: url('../assets/img/background-testimonials.jpg');
 	}
@@ -205,13 +205,13 @@ section {
 
 .Section--contact {
 	@extend %overlay;
-	
+
 	.Background {
 		background-image: url('../assets/img/background-contact.jpg');
 	}
 }
 
-.Section--products, 
+.Section--products,
 .Section--services {
 	background: $primary-color;
 
@@ -226,7 +226,7 @@ section {
 }
 
 .Section--hero {
-	background: url('https://static.pexels.com/photos/29593/pexels-photo-large.jpg') no-repeat;
+	background: url('../assets/img/background-hero.jpg') no-repeat;
 	background-size: cover;
 	background-position: center;
 	height: 600px;
@@ -319,7 +319,7 @@ section {
 	h2 {
 	    position: relative;
     	z-index: 1;
-		
+
 		a {
 			color: $gray;
 		    font-size: 2.5rem;
@@ -433,7 +433,7 @@ section {
 
 	    a {
 	    	cursor: pointer;
-    	    font-size: 2.5rem;	
+    	    font-size: 2.5rem;
 	    }
 	}
 }
@@ -460,12 +460,12 @@ section {
     margin-top: 3rem;
     display: inline-block;
 
-	&:before, 
+	&:before,
 	&:after {
 		position: absolute;
 		content: '';
 		display: block;
-		height: 2px; 
+		height: 2px;
 		width: 50px;
 		background: white;
 		top: 50%;
@@ -540,7 +540,7 @@ section {
         margin: 2rem auto 1rem;
     	line-height: 1.25;
     }
-    
+
     * {
     	text-transform: uppercase;
     	line-height: 1;

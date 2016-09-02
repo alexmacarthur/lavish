@@ -18,12 +18,12 @@ var Lavish = {
 		0 : {
 			name : 'Mirror',
 			beenDrawn : false
-		}, 
+		},
 
 		1 : {
 			name : 'Scissors',
 			beenDrawn : false
-		}, 
+		},
 
 		2 : {
 			name: 'Shampoo',
@@ -60,7 +60,7 @@ var Lavish = {
 		$('#testimonialSlider').slick({
 			infinite: true,
 			slidesToShow: 3,
-			slidesToScroll: 3, 
+			slidesToScroll: 3,
 			prevArrow: $('#slickPrev'),
 			nextArrow: $('#slickNext'),
 			responsive: [
@@ -80,7 +80,7 @@ var Lavish = {
 			    }
 		  	]
 		});
-	}, 
+	},
 
 	contactForm : function() {
 		$('#contactForm').on('submit', function(e){
@@ -94,7 +94,7 @@ var Lavish = {
 			$statusMessages.removeClass('failure success');
 
 			if($formMessage.val() === '') {
-				$statusMessages.html('A message is required.').addClass('form-failure');					
+				$statusMessages.html('A message is required.').addClass('form-failure');
 			} else {
 				$.ajax({
 					url: "//formspree.io/alex@macarthur.me",
@@ -166,7 +166,7 @@ var Lavish = {
 				$divider.addClass('is-visible');
 			}
     	}
-    }, 
+    },
 
     smoothScroll : function() {
 	    $("a[href*='#']:not([href='#'])").on('click', function() {

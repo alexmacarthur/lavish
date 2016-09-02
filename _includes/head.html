@@ -6,7 +6,7 @@
 	<title>{{ site.title }}</title>
 	<meta name="description" content="{{ site.description }}">
 	<meta name="keywords" content="">
-	<meta property="og:image" content="">
+	<meta property="og:image" content="{{ "assets/img/open-graph.jpg" | prepend: site.baseurl }}">
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="{{ site.name }}">
 	<meta property="og:url" content="{{ site.url }}">
@@ -14,8 +14,8 @@
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="{{ site.name }}">
 	<meta name="twitter:description" content="{{ site.description }}">
-	<meta name="twitter:image" content="">
-    
+	<meta name="twitter:image" content="{{ "assets/img/open-graph.jpg" | prepend: site.baseurl }}">
+
 	<link rel="stylesheet" href="{{ "assets/style.css" | prepend: site.baseurl }}">
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
 	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
@@ -41,7 +41,7 @@
 		    "@type": "GeoCoordinates",
 		    "latitude": "44.6166698",
 		    "longitude": "-95.4177197"
-	 	}, 			
+	 	},
 	  	"sameAs" : [ "{{ site.facebook }}"]
 		}
 	</script>
