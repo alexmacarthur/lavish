@@ -8,6 +8,15 @@ var browserSync = require('browser-sync');
 var cp = require('child_process');
 var concat = require('gulp-concat');
 var jekyll = process.platform === "win32" ? "jekyll.bat" : "jekyll";
+var htmlmin = require('gulp-htmlmin');
+var run = require('gulp-run');
+
+gulp.task('publish', function() {
+  return gulp.src('_site/*.html')
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('_site'))
+    .pipe(run('push-dir --dir=_site branch=gh-pages --force'));
+});
 
 gulp.task('build', function (done) {
   return cp.spawn(jekyll, ['build'], {stdio: 'inherit'})
