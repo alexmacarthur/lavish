@@ -2,7 +2,7 @@ footer {
 	@extend %clearfix;
 	background: $primary-color;
 	text-align: center;
-    padding: 3rem 2rem;
+  padding: 3rem 2rem;
 
     @include media($phablet) {
     	padding: 3rem 2rem;
@@ -31,7 +31,7 @@ footer {
         align-items: center;
 
         @include media($phablet) {
-        	display: block;
+        	    flex-direction: column;
         }
 
 		li {
