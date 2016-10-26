@@ -1,14 +1,16 @@
+
+
 .Container {
 	@extend %clearfix;
 	position: relative;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    z-index: 1;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 0 2rem;
+	z-index: 1;
 
-    .Section--testimonials & {
-    	overflow: hidden;
-    }
+	.Section--testimonials & {
+		overflow: hidden;
+	}
 }
 
 aside {
@@ -22,7 +24,7 @@ aside {
 
 	* {
 		text-align: left;
-	 	word-wrap: break-word;
+		word-wrap: break-word;
 	}
 
 	&:first-child {
@@ -37,15 +39,15 @@ aside {
 .Header {
 	@extend .Container;
 	position: relative;
-    z-index: 1;
-    margin-bottom: 3rem;
+	z-index: 1;
+	margin-bottom: 3rem;
 
-    h2 {
-	    margin-bottom: 2.5rem;
-    }
+	h2 {
+		margin-bottom: 2.5rem;
+	}
 
 	ul {
-	    margin: 0;
+		margin: 0;
 
 		li {
 			border: 0;
@@ -61,7 +63,7 @@ aside {
 
 			&:last-child {
 				max-width: 150px;
-			    margin-top: 1rem;
+				margin-top: 1rem;
 			}
 		}
 	}
@@ -101,9 +103,9 @@ section {
 	@extend %z-index;
 	position: relative;
 	padding: 4rem 0;
-    overflow: hidden;
-    text-align: center;
-    background: rgba(white, 1);
+	overflow: hidden;
+	text-align: center;
+	background: rgba(white, 1);
 }
 
 .Background {
@@ -119,60 +121,60 @@ section {
 }
 
 .Section--divider {
-    text-align: center;
+	text-align: center;
 
-    aside {
-    	display: inline-block;
-    	border-radius: 20px;
-    	height: 3px;
-    	min-width: 25%;
-    	max-width: 500px;
-    	position: relative;
-    	margin: 0;
-    	overflow: hidden;
-    	background: linear-gradient(90deg, rgba(white, .75) 0%, rgba($gray, .25) 100%);
+	aside {
+		display: inline-block;
+		border-radius: 20px;
+		height: 3px;
+		min-width: 25%;
+		max-width: 500px;
+		position: relative;
+		margin: 0;
+		overflow: hidden;
+		background: linear-gradient(90deg, rgba(white, .75) 0%, rgba($gray, .25) 100%);
 
-    	span {
-    		@extend %fill;
-    		transition: all .5s ease-in-out;
-    		background: white;
-    		height: 5px;
-    		transform: translateX(0%);
-    	}
+		span {
+			@extend %fill;
+			transition: all .5s ease-in-out;
+			background: white;
+			height: 5px;
+			transform: translateX(0%);
+		}
 
-    	&:last-of-type {
-    		background: linear-gradient(90deg, rgba($gray, .25) 0%, rgba(white, .5) 100%);
-    	}
-    }
+		&:last-of-type {
+			background: linear-gradient(90deg, rgba($gray, .25) 0%, rgba(white, .5) 100%);
+		}
+	}
 
-    &.is-visible {
+	&.is-visible {
 
-    	i {
+		i {
 			opacity: 1;
-    	}
+		}
 
-    	aside {
+		aside {
 
-    		span {
-    			transform: translate(-100%);
-    		}
+			span {
+				transform: translate(-100%);
+			}
 
-    		&:last-of-type {
+			&:last-of-type {
 
-    			span {
-    				transform: translateX(100%);
-    			}
-    		}
-    	}
-    }
+				span {
+					transform: translateX(100%);
+				}
+			}
+		}
+	}
 
 	i {
 		display: inline-block;
 		width: 75px;
-	    margin: 0 2rem;
-	    background: white;
-	    opacity: 0;
-	    transition: opacity .5s ease-in-out;
+		margin: 0 2rem;
+		background: white;
+		opacity: 0;
+		transition: opacity .5s ease-in-out;
 
 		svg {
 			max-width: 75%;
@@ -190,9 +192,9 @@ section {
 
 .Section--wrapper {
 	display: inline-block;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .Section--testimonials {
@@ -221,17 +223,20 @@ section {
 }
 
 @keyframes fadeIn {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
+	0%   { opacity: 0; }
+	100% { opacity: 1; }
 }
 
 .Section--hero {
 	background: url('../assets/img/background-hero.jpg') no-repeat;
 	background-size: cover;
 	background-position: center;
-	height: 600px;
 	overflow: visible;
-    padding: 2rem;
+	padding: 8rem 2rem;
+
+	@include media($mobile) {
+		padding: 3rem 1rem;
+	}
 
 	&:after {
 		@extend %fill;
@@ -240,35 +245,33 @@ section {
 	}
 
 	.Wrapper {
-	    position: relative;
-	    top: 50%;
-	    transform: translateY(-50%);
-	    z-index: 1;
+		position: relative;
+		z-index: 1;
 	}
 
 	h1 {
 		@extend %satisfy;
 		position: relative;
 		font-size: 6rem;
-    	z-index: 1;
-    	line-height: 1.25;
- 	   	margin: 0;
- 	   	color: $gray;
- 	   	font-weight: normal;
- 	   	text-align: center;
-   	    margin-bottom: 3rem;
+		z-index: 1;
+		line-height: 1.25;
+		margin: 0;
+		color: $gray;
+		font-weight: normal;
+		text-align: center;
+		margin-bottom: 3rem;
 
-   	    @include media($mobile) {
-	    	font-size: 4.5rem;
-	    }
+		@include media($mobile) {
+			font-size: 3.5rem;
+		}
 	}
 
 	ul {
 		text-align: center;
 		display: flex;
-	    justify-content: center;
-        align-items: center;
-        margin: 0 0 2.5rem;
+		justify-content: center;
+		align-items: center;
+		margin: 0 0 2.5rem;
 
 		li {
 			position: relative;
@@ -280,12 +283,12 @@ section {
 
 			& + li {
 				margin-left: 5rem;
-			    padding-left: 1rem;
+				padding-left: 1rem;
 
-			    @include media($mobile) {
-			    	margin-left: 2rem;
-			    	padding-left: 1rem;
-			    }
+				@include media($mobile) {
+					margin-left: 1.5rem;
+					padding-left: .75rem;
+				}
 
 				&:before {
 					content: '';
@@ -297,9 +300,9 @@ section {
 					top: 45%;
 					transform: translateY(-50%);
 
-				    @include media($mobile) {
-				    	width: 10px;
-				    }
+					@include media($mobile) {
+						width: 10px;
+					}
 				}
 
 				&:before {
@@ -317,19 +320,108 @@ section {
 	}
 
 	h2 {
-	    position: relative;
-    	z-index: 1;
+		position: relative;
+		z-index: 1;
 
 		a {
 			color: $gray;
-		    font-size: 2.5rem;
-		    font-weight: 100;
-		    border-radius: 5px;
+			font-size: 2.5rem;
+			font-weight: 100;
+			border-radius: 5px;
 
-		    @include media($mobile) {
-		    	font-size: 2rem;
-		    }
+			@include media($mobile) {
+				font-size: 2rem;
+			}
 		}
+	}
+}
+
+.SubMessage{
+  display: inline-block;
+	margin: 3rem 0 0;
+	text-align: center;
+
+	@include media($tablet) {
+		margin-top: 1rem;
+	}
+
+	div {
+		display: inline-block;
+		width: auto;
+		position: relative;
+		float: left;
+
+		@include media($tablet) {
+			width: 100%;
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+		}
+
+		&:after {
+			content: '';
+			display: table;
+			clear: both;
+		}
+
+		&:before {
+			content: none;
+		}
+	}
+
+	span {
+		font-size: 2.5rem;
+		font-weight: 600;
+		display: inline-block;
+		float: left;
+		height: 45px;
+		line-height: 45px;
+		text-transform: none;
+		margin-right: 1.5rem;
+
+		@include media($tablet) {
+			width: 100%;
+		}
+	}
+
+	img {
+		height: 45px;
+		position: absolute;
+
+		@include media($tablet) {
+			position: relative;
+			margin: 0 auto;
+		}
+
+		path {
+			fill: $gray;
+		}
+	}
+}
+
+.SubMessage-square {
+	margin-right: 3rem;
+	padding-right: 18rem;
+
+	@include media($tablet){
+		padding-right: 0;
+	}
+
+	img {
+		height: 38px;
+
+		@include media($tablet) {
+			margin-top: .5rem;
+		}
+	}
+}
+
+.SubMessage-giftCards {
+	padding-right: 4.5rem;
+
+	@include media($tablet) {
+		margin-left: 0;
+		padding: 2rem 0 0 0;
 	}
 }
 
@@ -344,8 +436,8 @@ section {
 
 .FancyDivider--above {
 	bottom: 5px;
-    top: auto;
-    transform: rotate(180deg);
+	top: auto;
+	transform: rotate(180deg);
 }
 
 .FancyDivider-stripe {
@@ -363,20 +455,20 @@ section {
 
 .Slider {
 	margin-bottom: 0;
-    margin-top: -3rem;
+	margin-top: -3rem;
 
 	li {
 		position: relative;
-	    padding: 2rem;
-	    text-align: center;
-        margin-bottom: 0;
+		padding: 2rem;
+		text-align: center;
+		margin-bottom: 0;
 
-	    div {
+		div {
 			background: white;
 		}
 	}
 
-	figure {
+	.Slider-icon {
 		width: 90px;
 		height: 90px;
 		border-radius: 100%;
@@ -388,53 +480,44 @@ section {
 		background-position: center;
 		background: $gray3;
 
-		svg {
+		img {
 			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -55%);
-			width: 55%;
+			top: calc(50% - 27px);
+			left: calc(50% - 25px);
+			width: 50px;
+			height: 50px;
 			fill: $gray;
 		}
 	}
 
 	p {
-	    padding: 6rem 2rem 2rem;
-	}
-
-	.slick-list {
-		overflow: visible;
-		//display: flex;
-	}
-
-	.slick-track {
-		//display: flex;
+		padding: 6rem 2rem 2rem;
 	}
 }
 
 .SliderNav {
-    text-align: center;
-    margin: 0;
+	text-align: center;
+	margin: 0;
 
 	li {
-	    display: inline-block !important;
-    	bottom: 0;
-    	transition: all .15s ease-in-out;
-	    opacity: .75;
-	    margin-top: 0;
+		display: inline-block;
+		bottom: 0;
+		transition: all .15s ease-in-out;
+		opacity: .75;
+		margin-top: 0;
 
-	    &:hover {
-	    	opacity: 1;
-	    }
+		&:hover {
+			opacity: 1;
+		}
 
-	    &:first-child {
-	    	margin-right: 2rem;
-	    }
+		&:first-child {
+			margin-right: 2rem;
+		}
 
-	    a {
-	    	cursor: pointer;
-    	    font-size: 2.5rem;
-	    }
+		a {
+			cursor: pointer;
+			font-size: 2.5rem;
+		}
 	}
 }
 
@@ -449,16 +532,14 @@ section {
 		position: relative;
 		font-size: 3rem;
 		padding: 0 2rem;
-
-
 	}
 }
 
 .SPLabel {
 	font-size: 2rem;
 	position: relative;
-    margin-top: 3rem;
-    display: inline-block;
+	margin-top: 3rem;
+	display: inline-block;
 
 	&:before,
 	&:after {
@@ -484,9 +565,9 @@ section {
 .ProductList--description {
 	height: 0;
 	overflow: hidden;
-    position: absolute;
-    width: 100%;
-    left: 0;
+	position: absolute;
+	width: 100%;
+	left: 0;
 }
 
 .ContactList {
@@ -531,23 +612,37 @@ section {
 	display: inline-block;
 	background: $red;
 	margin: 0 auto;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height .25s ease-in-out;
-    border-radius: 5px;
+	overflow: hidden;
+	max-height: 0;
+	transition: max-height .25s ease-in-out;
+	border-radius: 5px;
 
-    li {
-        margin: 2rem auto 1rem;
-    	line-height: 1.25;
-    }
+	li {
+		margin: 2rem auto 1rem;
+		line-height: 1.25;
+	}
 
-    * {
-    	text-transform: uppercase;
-    	line-height: 1;
-    }
+	* {
+		text-transform: uppercase;
+		line-height: 1;
+	}
 
-    &.is-open {
-    	max-height: 500px;
-    	margin-bottom: 1rem;
-    }
+	&.is-open {
+		max-height: 500px;
+		margin-bottom: 1rem;
+	}
+}
+
+.Copyright {
+	margin-top: 3rem;
+	font-size: 1.75rem;
+	display: block;
+
+	a {
+		font-weight: bold;
+
+		&:hover {
+			border-bottom: 2px solid white;
+		}
+	}
 }

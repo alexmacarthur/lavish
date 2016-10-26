@@ -7,11 +7,15 @@ var Lavish = {
 		this.mobileMenu();
 		this.smoothScroll();
 		this.mobileMenuMargin();
+		this.setCopyrightYear();
 	},
 
 	elements : {
 		$nav : $('nav'),
-		$navList : $('nav').find('ul')
+		$navList : $('nav').find('ul'),
+		$hero : $('#hero'),
+		$top : $('#top'),
+		$year : $('#year')
 	},
 
 	svgDividers : {
@@ -29,6 +33,11 @@ var Lavish = {
 			name: 'Shampoo',
 			beenDrawn : false
 		}
+	},
+
+	setCopyrightYear : function() {
+		var currentYear = new Date().getFullYear();
+		this.elements.$year.html(currentYear);
 	},
 
 	mobileMenu : function(){

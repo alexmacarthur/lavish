@@ -1,13 +1,13 @@
 header {
 	@extend %z-index;
-	transition: all .25s ease-in-out;
+	transition: all .5s ease-out;
 	position: relative;
 	background: white;
-    z-index: 2;
+  z-index: 2;
 
-    &.is-open {
-    	padding-top: 55px;
-    }
+  &.is-open {
+  	padding-top: 55px;
+  }
 
 	ul {
 		@extend .Container;
@@ -19,16 +19,18 @@ header {
 }
 
 .TopBar {
-	transition: all .25s ease-in-out;
+	transition: max-height .5s ease-out, opacity .65s ease-out;
 	overflow: hidden;
 	background: $primary-color;
   position: fixed;
   top: 0;
+	opacity: 0;
   width: 100%;
   z-index: 2;
   max-height: 0;
 
     &.is-open {
+			opacity: 1;
     	max-height: 60px;
     }
 
@@ -140,7 +142,7 @@ nav {
     padding: 3rem 0 1rem;
 
     @include media($phablet) {
-    	transition: all .25s ease-in-out;
+    	transition: all .25s ease-out;
     	transform: translateX(100%);
     	position: fixed;
 	    background: rgba($primary-color, .85);
@@ -200,7 +202,7 @@ nav {
 			    }
 
 			    &:after {
-			    	transition: all .15s ease-in-out;
+			    	transition: all .15s ease-out;
 			    	content: '';
 			    	display: block;
 			    	position: absolute;
