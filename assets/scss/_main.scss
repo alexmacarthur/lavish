@@ -403,6 +403,11 @@ section {
 	margin-right: 3rem;
 	padding-right: 18rem;
 
+	span {
+		height: 38px;
+		line-height: 38px;
+	}
+
 	@include media($tablet){
 		padding-right: 0;
 	}
