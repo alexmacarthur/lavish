@@ -11,12 +11,14 @@ var jekyll = process.platform === "win32" ? "jekyll.bat" : "jekyll";
 var htmlmin = require('gulp-htmlmin');
 var run = require('gulp-run');
 
-gulp.task('publish', function() {
+// Compress HTML.
+gulp.task('compress', function() {
   return gulp.src('_site/*.html')
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('_site'));
 });
 
+// Build Jekyll.
 gulp.task('build', function (done) {
   return cp.spawn(jekyll, ['build'], {stdio: 'inherit'})
   .on('close', done);
