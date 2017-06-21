@@ -21,6 +21,7 @@
     "gulp-run": "^1.7.1",
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0",
-    "push-dir": "^0.2.2"
+    "push-dir": "^0.2.2",
+    "jshint": "^2.9.4"
   }
 }

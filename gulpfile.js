@@ -15,7 +15,6 @@ gulp.task('publish', function() {
   return gulp.src('_site/*.html')
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('_site'));
-    // .pipe(run('push-dir --dir=_site --branch=gh-pages --force'));
 });
 
 gulp.task('build', function (done) {
