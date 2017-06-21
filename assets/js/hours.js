@@ -17,10 +17,10 @@ var Hours = {
         if (authResult) {
             Hours.makeAPICall();
         }
-    }, 
+    },
 
     makeAPICall : function() {
-        var today = new Date(); 
+        var today = new Date();
         var mostRecentSunday = (function() {
             var d = new Date(today);
             d.setDate(d.getDate() - d.getDay());
@@ -44,11 +44,11 @@ var Hours = {
 
             var request = gapi.client.calendar.events.list({
                 'calendarId' : Hours.calendarIDHours,
-                'timeZone' : Hours.userTimeZone, 
-                'singleEvents': true, 
+                'timeZone' : Hours.userTimeZone,
+                'singleEvents': true,
                 'timeMin': mostRecentSunday.toISOString(),
                 'timeMax': upcomingSaturday.toISOString(),
-                'maxResults': 20, 
+                'maxResults': 20,
                 'orderBy': 'startTime'});
 
             request.execute(function (resp) {
@@ -78,10 +78,12 @@ var Hours = {
                     closeTime = closeTime > 12 ? closeTime - 12 : closeTime;
                     closeTime = closeDate.getMinutes() === 0 ? closeTime : closeTime + ':' + closeDate.getMinutes();
 
+                    var description = resp.items[i].description ? ' ' + resp.items[i].description : '';
+
                     if(sameDay) {
-                        $hoursList.find('li').last().append(', ' + openTime + openTimeSuffix + ' - ' + closeTime + closeTimeSuffix);
+                        $hoursList.find('li').last().append(', ' + openTime + openTimeSuffix + ' - ' + closeTime + closeTimeSuffix + description);
                     } else {
-                        $hoursList.append('<li><strong>' + dayString + ':</strong>' + openTime + openTimeSuffix + ' - ' + closeTime + closeTimeSuffix + '</li>');
+                        $hoursList.append('<li><strong>' + dayString + ':</strong>' + openTime + openTimeSuffix + ' - ' + closeTime + closeTimeSuffix + description + '</li>');
                     }
 
                     if(startDate.getDay() === thisDay) {
@@ -106,11 +108,11 @@ var Hours = {
 
             var requestServiceProducts = gapi.client.calendar.events.list({
                 'calendarId' : Hours.calendarIDProductSpecials,
-                'timeZone' : Hours.userTimeZone, 
-                'singleEvents': true, 
+                'timeZone' : Hours.userTimeZone,
+                'singleEvents': true,
                 'timeMin': todayBeginning.toISOString(),
                 'timeMax': todayEnding.toISOString(),
-                'maxResults': 20, 
+                'maxResults': 20,
                 'orderBy': 'startTime'});
 
             requestServiceProducts.execute(function (resp) {
@@ -124,11 +126,11 @@ var Hours = {
 
             var requestProductSpecials = gapi.client.calendar.events.list({
                 'calendarId' : Hours.calendarIDServiceSpecials,
-                'timeZone' : Hours.userTimeZone, 
-                'singleEvents': true, 
+                'timeZone' : Hours.userTimeZone,
+                'singleEvents': true,
                 'timeMin': todayBeginning.toISOString(),
                 'timeMax': todayEnding.toISOString(),
-                'maxResults': 20, 
+                'maxResults': 20,
                 'orderBy': 'startTime'});
 
             requestProductSpecials.execute(function (resp) {
@@ -140,7 +142,7 @@ var Hours = {
                 }
             });
         });
-    }, 
+    },
 
     getDayString : function(int) {
         switch(int) {
