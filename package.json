@@ -23,5 +23,8 @@
     "gulp-uglify": "^2.0.0",
     "push-dir": "^0.2.2",
     "jshint": "^2.9.4"
+  },
+  "scripts": {
+    "deploy" : "gulp build && gulp compress && push-dir --dir=_site --branch=gh-pages --force"
   }
 }
